@@ -12,6 +12,23 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Servicio
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="servicio")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     */
+
+    private $cliente;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Trabajadora", inversedBy="servicio", cascade={"persist"})
+     * @ORM\JoinTable(name="servicio_trabajadora",
+     * joinColumns={@ORM\JoinColumn(name="trabajadora_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="trabajadora_id", referencedColumnName="id")}
+     * )
+     */
+    private $trabajadora;
+
     /**
      * @var int
      *
