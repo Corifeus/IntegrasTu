@@ -3,6 +3,7 @@
 namespace PIGBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="PIGBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -64,7 +65,7 @@ class User
     {
         $this->plainPassword = $password;
     }
-    
+
     /**
      * Set username
      *
@@ -136,4 +137,16 @@ class User
     {
         return $this->password;
     }
+
+    //Metodos que debe implementar el Entity por UserInterface
+    public function getSalt()
+    {
+        // The bcrypt algorithm doesn't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+    public function getRoles() {
+      return array('ROLE_USER');
+    }
+    public function eraseCredentials() {}
 }

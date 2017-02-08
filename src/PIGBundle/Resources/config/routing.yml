@@ -33,3 +33,7 @@ trabajadoras_todas:
 trabajadoras_exito:
     path:     /trabajadoras/msgExito
     defaults: { _controller: PIGBundle:Trabajadora:msgExito }
+
+usuario_nuevo:
+    path:     /register
+    defaults: { _controller: PIGBundle:User:register }
