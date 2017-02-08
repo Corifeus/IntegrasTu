@@ -1,6 +1,16 @@
-.texto{
-  color:red;
+.nav > li > a{
+  color: rgb(210, 41, 2);
 }
-.tabla{
-  background-color: grey;
+
+ul.nav > li > a:hover{
+  color: #f7f7f7;
+  background-color: rgb(210, 41, 2);
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+  background-color: rgb(210, 41, 2);
+}
+
+.nav .open>a, .nav .open>a:focus{
+  color: #f7f7f7;
 }
