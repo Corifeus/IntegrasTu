@@ -1,0 +1,34 @@
+<a href="/"><img src="http://3.bp.blogspot.com/-h0LmXnazAQI/Tee5QD2FFQI/AAAAAAAAAAk/D3NutduIps8/s760/logo.jpg"></img></a><br><br><br>
+
+<table>
+
+  <tr>
+    <td>CIF</td>
+    <td>Domicilio Fiscal</td>
+    <td>CP</td>
+    <td>Municipio</td>
+    <td>Provincia</td>
+    <td>Nº Cuenta bancaria</td>
+    <td>Persona de contacto</td>
+    <td>Teléfono de contacto</td>
+    <td>Teléfono móvil de contacto</td>
+    <td>Razón social</td>
+  </tr>
+
+  {% for cliente in clientes %}
+    <tr>
+      <td>{{ cliente.cIF }}</td>
+      <td>{{ cliente.domicilioFiscal }}</td>
+      <td>{{ cliente.cP }}</td>
+      <td>{{ cliente.municipio }}</td>
+      <td>{{ cliente.provincia }}</td>
+      <td>{{ cliente.noCuentaBancaria }}</td>
+      <td>{{ cliente.personaContacto }}</td>
+      <td>{{ cliente.telefonoContacto }}</td>
+      <td>{{ cliente.telefonoMovilContacto }}</td>
+      <td>{{ cliente.razonSocial }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<br><a href="/clientes">Clientes</a>

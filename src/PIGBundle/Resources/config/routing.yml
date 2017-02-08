@@ -1,0 +1,35 @@
+pig_homepage:
+    path:     /
+    defaults: { _controller: PIGBundle:Default:index }
+
+clientes_index:
+    path:     /clientes
+    defaults: { _controller: PIGBundle:Cliente:index }
+
+clientes_nuevo:
+    path:     /clientes/new
+    defaults: { _controller: PIGBundle:Cliente:nuevoCliente }
+
+clientes_todos:
+    path:     /clientes/all
+    defaults: { _controller: PIGBundle:Cliente:clienteAll }
+
+clientes_exito:
+    path:     /clientes/msgExito
+    defaults: { _controller: PIGBundle:Cliente:msgExito }
+
+trabajadoras_index:
+    path:     /trabajadoras
+    defaults: { _controller: PIGBundle:Trabajadora:index }
+
+trabajadoras_nueva:
+    path:     /trabajadoras/new
+    defaults: { _controller: PIGBundle:Trabajadora:nuevaTrabajadora }
+
+trabajadoras_todas:
+    path:     /trabajadoras/all
+    defaults: { _controller: PIGBundle:Trabajadora:trabajadoraAll }
+
+trabajadoras_exito:
+    path:     /trabajadoras/msgExito
+    defaults: { _controller: PIGBundle:Trabajadora:msgExito }

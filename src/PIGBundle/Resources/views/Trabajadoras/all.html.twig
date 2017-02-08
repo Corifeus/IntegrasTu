@@ -1,0 +1,38 @@
+<a href="/"><img src="http://3.bp.blogspot.com/-h0LmXnazAQI/Tee5QD2FFQI/AAAAAAAAAAk/D3NutduIps8/s760/logo.jpg"></img></a>
+<h2>Bienvenido a la zona de las trabajadoras</h2><br>
+
+<table>
+
+  <tr>
+    <td>Nombre</td>
+    <td>Apellidos</td>
+    <td>Direccion</td>
+    <td>Fecha de alta</td>
+    <td>Puesto</td>
+    <td>Nº Cuenta bancaria</td>
+    <td>Nº Seguridad Social</td>
+    <td>DNI</td>
+    <td>Fecha de nacimiento</td>
+    <td>Teléfono</td>
+    <td>Estado</td>
+  </tr>
+
+  {% for trabajadora in trabajadoras %}
+    <tr>
+      <td>{{ trabajadora.nombre }}</td>
+      <td>{{ trabajadora.apellidos }}</td>
+      <td>{{ trabajadora.direccion }}</td>
+      <td>{{ trabajadora.fechaAlta.date }}</td>
+      <td>{{ trabajadora.puesto }}</td>
+      <td>{{ trabajadora.noCuentaBanco }}</td>
+      <td>{{ trabajadora.noSeguridadSocial }}</td>
+      <td>{{ trabajadora.dNI }}</td>
+      <td>{{ trabajadora.fechaNac.date }}</td>
+      <td>{{ trabajadora.telefono }}</td>
+      <td>{{ trabajadora.estado }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+<br><a href="/trabajadoras">Volver a trabajadoras</a>
