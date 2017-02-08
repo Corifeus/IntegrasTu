@@ -1,5 +1,15 @@
-<a href="/"><img src="http://3.bp.blogspot.com/-h0LmXnazAQI/Tee5QD2FFQI/AAAAAAAAAAk/D3NutduIps8/s760/logo.jpg"></img></a><br><br><br>
+{% extends '::base.html.twig' %}
+{% block title %}PIG{% endblock %}
 
+{% block menubar %}
+    {% for cliente in clientes %}
+
+        <li>{{ cliente.nombre }}</li>
+
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
 <table>
 
   <tr>
@@ -32,3 +42,4 @@
 </table>
 
 <br><a href="/clientes">Clientes</a>
+{% endblock %}
