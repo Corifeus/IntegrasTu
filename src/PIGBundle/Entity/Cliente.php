@@ -25,6 +25,15 @@ class Cliente
     /**
      * @var string
      *
+     * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $nombre;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="CIF", type="string", length=255)
      * @Assert\NotBlank()
      */
@@ -123,6 +132,30 @@ class Cliente
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return int
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Cliente
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
     }
 
     /**
