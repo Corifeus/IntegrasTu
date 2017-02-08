@@ -14,6 +14,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Cliente
 {
     /**
+     * @ORM\OneToMany(targetEntity="Servicio", mappedBy="cliente")
+     */
+    private $servicio;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
