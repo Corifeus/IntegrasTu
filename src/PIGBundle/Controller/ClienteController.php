@@ -11,7 +11,9 @@ class ClienteController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('PIGBundle:Clientes:index.html.twig');
+        $repository= $this->getDoctrine()->getRepository('PIGBundle:Cliente');
+        $clientes = $repository->findAll();
+        return $this->render('PIGBundle:Clientes:index.html.twig',array("clientes"=>$clientes));
     }
 
 
