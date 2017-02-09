@@ -37,3 +37,11 @@ trabajadoras_exito:
 usuario_nuevo:
     path:     /register
     defaults: { _controller: PIGBundle:User:register }
+
+usuarios_homepage:
+    path:     /usuarios
+    defaults: { _controller: PIGBundle:User:index }
+
+login:
+    path:     /usuarios/login
+    defaults: { _controller: PIGBundle:User:login}

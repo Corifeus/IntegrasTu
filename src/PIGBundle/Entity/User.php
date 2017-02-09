@@ -4,6 +4,7 @@ namespace PIGBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -11,6 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="PIGBundle\Repository\UserRepository")
  */
+ 
 class User implements UserInterface
 {
     /**
@@ -26,6 +28,13 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 32,
+     *      minMessage = "Minimo 4",
+     *      maxMessage = "Maximo 32"
+     * )
      */
     private $username;
 
@@ -33,6 +42,11 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email(
+     *     message = "No es un email correcto",
+     *     checkMX = true
+     * )
      */
     private $email;
 
@@ -43,6 +57,12 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="roles", type="json_array")
+     */
+     private $roles = array();
 
     /**
      * Get id
@@ -54,6 +74,30 @@ class User implements UserInterface
         return $this->id;
     }
 
+    /**
+    * @Assert\NotBlank(
+    *     message="No la dejes en blanco,si no va a ser un poco dificil hacer login"
+    * )
+    * @Assert\Regex(
+    *     pattern="/^.*[A-Z]+.*$/",
+    *     match=true,
+    *     message="Usa al menos una mayuscula"
+    * )
+    * @Assert\Regex(
+    *     pattern="/^.*[0-9].*$/",
+    *     match=true,
+    *     message="Usa al menos un numero"
+    * )
+    * @Assert\Regex(
+    *     pattern="/^.*[a-z].*$/",
+    *     match=true,
+    *     message="Usa al menos una minuscula"
+    * )
+    * @Assert\Length(
+    *      min = 8,
+    *      minMessage = "Usa al menos 8 caracteres"
+    * )
+    */
     private $plainPassword;
 
     public function getPlainPassword()
@@ -145,8 +189,19 @@ class User implements UserInterface
         // You *may* need a real salt if you choose a different encoder.
         return null;
     }
-    public function getRoles() {
-      return array('ROLE_USER');
+
+    public function setRoles(array $roles)
+    {
+      $this->roles = $roles;
+
+      // allows for chaining
+      return $this;
     }
+
+
+    public function getRoles() {
+      return $this->roles;
+    }
+
     public function eraseCredentials() {}
 }

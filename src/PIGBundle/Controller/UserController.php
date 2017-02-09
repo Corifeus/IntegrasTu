@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('PIGBundle:user:index.html.twig');
+        return $this->render('PIGBundle:User:index.html.twig');
     }
 
     public function registerAction(Request $request)
@@ -31,6 +31,10 @@ class UserController extends Controller
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
 
+            // 3.5) Add the role of the user
+            $roles = ["ROLE_USUARIO"];
+            $user->setRoles($roles);
+
             // 4) save the User!
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -47,4 +51,21 @@ class UserController extends Controller
             array('form' => $form->createView())
         );
     }
+
+    public function loginAction()
+    {
+      $authenticationUtils = $this->get('security.authentication_utils');
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('PIGBundle:User:login.html.twig', array(
+        'last_username' => $lastUsername,
+        'error'         => $error,
+      ));
+    }
+
 }
