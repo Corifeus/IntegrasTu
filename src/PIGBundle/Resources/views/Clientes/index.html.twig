@@ -4,7 +4,7 @@
 {% block menubar %}
     {% for cliente in clientes %}
 
-        <li>{{ cliente.nombre }}</li>
+        <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
 
     {% endfor %}
 {% endblock %}

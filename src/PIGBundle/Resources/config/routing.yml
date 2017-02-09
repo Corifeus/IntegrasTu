@@ -14,6 +14,10 @@ clientes_todos:
     path:     /clientes/all
     defaults: { _controller: PIGBundle:Cliente:clienteAll }
 
+clientes_show:
+    path:     /clientes/show/{id}
+    defaults: { _controller: PIGBundle:Cliente:clienteShow }
+
 clientes_exito:
     path:     /clientes/msgExito
     defaults: { _controller: PIGBundle:Cliente:msgExito }
