@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class OtroType extends AbstractType
 {
@@ -17,7 +18,12 @@ class OtroType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('especificaciones' ,TextType::class)  
+        $builder->add('personaContacto', TextType::class)
+        ->add('telefonoContacto' ,TextType::class)
+        ->add('direccion' ,TextType::class)
+        ->add('fecha' ,DateType::class)
+        ->add('observaciones' ,TextType::class)
+        ->add('especificaciones' ,TextType::class)
         ->add('Salvar',SubmitType::class)
         ->add('Borrar',ResetType::class)          ;
     }

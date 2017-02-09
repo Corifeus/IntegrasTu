@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ServicioType extends AbstractType
 {
@@ -20,10 +21,9 @@ class ServicioType extends AbstractType
         $builder->add('personaContacto', TextType::class)
         ->add('telefonoContacto' ,TextType::class)
         ->add('direccion' ,TextType::class)
-        ->add('fecha' ,TextType::class)
+        ->add('fecha' ,DateType::class)
         ->add('observaciones' ,TextType::class)
         ->add('estado' ,TextType::class)
-        ->add('cliente' ,IntegerType::class)
         ->add('Salvar',SubmitType::class)
         ->add('Borrar',ResetType::class)         ;
     }

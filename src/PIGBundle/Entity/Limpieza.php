@@ -17,7 +17,7 @@ class Limpieza extends Servicio
   /**
    * @var string
    *
-   * @ORM\Column(name="especificaciones", type="string", length=255)
+   * @ORM\Column(name="productos", type="string", length=255)
    */
     private $productos;
 

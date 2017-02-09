@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+{% block title %}PIG{% endblock %}
+
+
+{% block body %}
+<table>
+
+  <tr>
+    <td>Persona de Contacto</td>
+    <td>Telefono de Contacto</td>
+    <td>Dirección</td>
+    <td>Fecha</td>
+    <td>Observaciones</td>
+    <td>Estado</td>
+    <td>servicio</td>
+  </tr>
+
+  {% for servicio in servicios %}
+    <tr>
+      <td>{{ servicio.personaContacto }}</td>
+      <td>{{ servicio.telefonoContacto }}</td>
+      <td>{{ servicio.direccion }}</td>
+      <td>{{ servicio.fecha }}</td>
+      <td>{{ servicio.observaciones }}</td>
+      <td>{{ servicio.estado }}</td>
+      <td>{{ servicio.cliente.nombre }}</td>
+      <td>{{ servicio.telefonoContacto }}</td>
+      <td>{{ servicio.telefonoMovilContacto }}</td>
+      <td>{{ servicio.razonSocial }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<br><a href="/servicios">Volver a Servicios</a>
+{% endblock %}
