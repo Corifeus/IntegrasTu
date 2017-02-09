@@ -14,11 +14,11 @@ class Limpieza extends Servicio
 {
 
 
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="productos", type="array")
-     */
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="especificaciones", type="string", length=255)
+   */
     private $productos;
 
     /**
@@ -30,11 +30,11 @@ class Limpieza extends Servicio
 
 
 
-  
+
     /**
      * Set productos
      *
-     * @param array $productos
+     * @param string $productos
      *
      * @return Limpieza
      */
@@ -48,7 +48,7 @@ class Limpieza extends Servicio
     /**
      * Get productos
      *
-     * @return array
+     * @return string
      */
     public function getProductos()
     {

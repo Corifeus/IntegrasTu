@@ -14,11 +14,11 @@ class Mantenimiento extends Servicio
 {
 
 
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="material", type="array")
-     */
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="material", type="string", length=255)
+   */
     private $material;
 
     /**
@@ -32,7 +32,7 @@ class Mantenimiento extends Servicio
     /**
      * Set material
      *
-     * @param array $material
+     * @param string $material
      *
      * @return Mantenimiento
      */
@@ -46,7 +46,7 @@ class Mantenimiento extends Servicio
     /**
      * Get material
      *
-     * @return array
+     * @return string
      */
     public function getMaterial()
     {
