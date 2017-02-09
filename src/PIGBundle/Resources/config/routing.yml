@@ -31,8 +31,8 @@ trabajadoras_nueva:
     defaults: { _controller: PIGBundle:Trabajadora:nuevaTrabajadora }
 
 trabajadoras_todas:
-    path:     /trabajadoras/all
-    defaults: { _controller: PIGBundle:Trabajadora:trabajadoraAll }
+    path:     /trabajadoras/show/{id}
+    defaults: { _controller: PIGBundle:Trabajadora:trabajadoraShow }
 
 trabajadoras_exito:
     path:     /trabajadoras/msgExito
