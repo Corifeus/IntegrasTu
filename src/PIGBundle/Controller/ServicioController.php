@@ -79,10 +79,11 @@ class ServicioController extends Controller
                   return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
                   break;
         }
+        //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
     		return $this->redirectToRoute('Servicios_exito');
     	}
-
-    	return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
+      return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
+    	//return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
 
     }
 
@@ -90,7 +91,8 @@ class ServicioController extends Controller
 
     public function msgExitoAction()
     {
-        return $this->render('PIGBundle:Servicios:msgExito.html.twig');
+        return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
+        //return $this->render('PIGBundle:Servicios:msgExito.html.twig');
     }
 
 
