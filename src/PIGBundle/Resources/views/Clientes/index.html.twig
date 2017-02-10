@@ -4,9 +4,12 @@
 {% block menubar %}
     {% for cliente in clientes %}
 
-        <li>{{ cliente.nombre }}</li>
+        <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
 
     {% endfor %}
+
+    <button class="btn btn-default">Insertar Cliente</button>
+
 {% endblock %}
 
 {% block body %}

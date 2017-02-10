@@ -14,3 +14,40 @@ ul.nav > li > a:hover{
 .nav .open>a, .nav .open>a:focus{
   color: #f7f7f7;
 }
+
+
+.sidebar ul li a.active {
+    background-color: rgb(210, 41, 2);
+    color: #f7f7f7;
+}
+
+.btn-default{
+  margin-left: 60px;
+  margin-top: 10px;
+  color: rgb(210, 41, 2);
+}
+
+.btn-default:hover{
+  color: #f7f7f7;
+  background-color: rgb(210, 41, 2);
+}
+
+.btn-default.focus, .btn-default:focus {
+    color: rgb(210, 41, 2);
+    background-color: #f7f7f7;
+    border-color: rgb(210, 41, 2);
+}
+
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+    color: rgb(210, 41, 2);
+    background-color: #f7f7f7;
+    border-color: rgb(210, 41, 2);
+}
+
+.nav-tabs.nav-justified {
+    margin-top: 9px;
+}
+
+button:focus{
+  outline: none;
+}

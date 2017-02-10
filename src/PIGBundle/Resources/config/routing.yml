@@ -14,6 +14,10 @@ clientes_todos:
     path:     /clientes/all
     defaults: { _controller: PIGBundle:Cliente:clienteAll }
 
+clientes_show:
+    path:     /clientes/show/{id}
+    defaults: { _controller: PIGBundle:Cliente:clienteShow }
+
 clientes_exito:
     path:     /clientes/msgExito
     defaults: { _controller: PIGBundle:Cliente:msgExito }
@@ -27,8 +31,8 @@ trabajadoras_nueva:
     defaults: { _controller: PIGBundle:Trabajadora:nuevaTrabajadora }
 
 trabajadoras_todas:
-    path:     /trabajadoras/all
-    defaults: { _controller: PIGBundle:Trabajadora:trabajadoraAll }
+    path:     /trabajadoras/show/{id}
+    defaults: { _controller: PIGBundle:Trabajadora:trabajadoraShow }
 
 trabajadoras_exito:
     path:     /trabajadoras/msgExito

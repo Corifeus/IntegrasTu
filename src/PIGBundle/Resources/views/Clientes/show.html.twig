@@ -1,0 +1,74 @@
+{% extends '::base.html.twig' %}
+{% block title %}PIG{% endblock %}
+
+{% block menubar %}
+    {% for cliente in clientes %}
+
+        <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
+
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+<table class="table table-striped">
+  {% for cliente in clientes %}
+  {% if cliente.id == id %}
+  <tr>
+    <td>Nombre</td>
+    <td>{{ cliente.nombre }}</td>
+  </tr>
+  <tr>
+    <td>CIF</td>
+    <td>{{ cliente.cIF }}</td>
+  </tr>
+
+  <tr>
+      <td>Domicilio Fiscal</td>
+      <td>{{ cliente.domicilioFiscal }}</td>
+  </tr>
+
+  <tr>
+    <td>CP</td>
+    <td>{{ cliente.cP }}</td>
+  </tr>
+
+  <tr>
+    <td>Municipio</td>
+    <td>{{ cliente.municipio }}</td>
+  </tr>
+
+  <tr>
+    <td>Provincia</td>
+    <td>{{ cliente.provincia }}</td>
+  </tr>
+
+  <tr>
+    <td>Nº Cuenta bancaria</td>
+    <td>{{ cliente.noCuentaBancaria }}</td>
+  </tr>
+
+  <tr>
+    <td>Persona de contacto</td>
+    <td>{{ cliente.personaContacto }}</td>
+  </tr>
+
+  <tr>
+    <td>Teléfono de contacto</td>
+    <td>{{ cliente.telefonoContacto }}</td>
+  </tr>
+
+  <tr>
+    <td>Teléfono móvil de contacto</td>
+    <td>{{ cliente.telefonoMovilContacto }}</td>
+  </tr>
+
+  <tr>
+    <td>Razón social</td>
+    <td>{{ cliente.razonSocial }}</td>
+  </tr>
+
+  {% endif %}
+  {% endfor %}
+</table>
+
+{% endblock %}
