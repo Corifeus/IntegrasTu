@@ -43,3 +43,11 @@ ul.nav > li > a:hover{
     background-color: #f7f7f7;
     border-color: rgb(210, 41, 2);
 }
+
+.nav-tabs.nav-justified {
+    margin-top: 9px;
+}
+
+button:focus{
+  outline: none;
+}
