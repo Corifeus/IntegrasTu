@@ -2,73 +2,97 @@
 {% block title %}PIG{% endblock %}
 
 {% block menubar %}
-    {% for cliente in clientes %}
+    {% for servicio in servicios %}
 
-        <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
+        <li><a href="/clientes/show/{{servicio.cliente.id}}">{{ servicio.cliente.nombre }}</a></li>
 
     {% endfor %}
 {% endblock %}
 
 {% block body %}
 <table class="table table-striped">
-  {% for cliente in clientes %}
-  {% if cliente.id == id %}
+
+  {% set limite = 1 %}
+
+  {% for servicio in servicios %}
+  {% if servicio.cliente.id == id %}
+  {% if limite == 1 %}
+  {% set limite = 0 %}
   <tr>
     <td>Nombre</td>
-    <td>{{ cliente.nombre }}</td>
+    <td>{{ servicio.cliente.nombre }}</td>
   </tr>
   <tr>
     <td>CIF</td>
-    <td>{{ cliente.cIF }}</td>
+    <td>{{ servicio.cliente.cIF }}</td>
   </tr>
 
   <tr>
       <td>Domicilio Fiscal</td>
-      <td>{{ cliente.domicilioFiscal }}</td>
+      <td>{{ servicio.cliente.domicilioFiscal }}</td>
   </tr>
 
   <tr>
     <td>CP</td>
-    <td>{{ cliente.cP }}</td>
+    <td>{{ servicio.cliente.cP }}</td>
   </tr>
 
   <tr>
     <td>Municipio</td>
-    <td>{{ cliente.municipio }}</td>
+    <td>{{ servicio.cliente.municipio }}</td>
   </tr>
 
   <tr>
     <td>Provincia</td>
-    <td>{{ cliente.provincia }}</td>
+    <td>{{ servicio.cliente.provincia }}</td>
   </tr>
 
   <tr>
     <td>Nº Cuenta bancaria</td>
-    <td>{{ cliente.noCuentaBancaria }}</td>
+    <td>{{ servicio.cliente.noCuentaBancaria }}</td>
   </tr>
 
   <tr>
     <td>Persona de contacto</td>
-    <td>{{ cliente.personaContacto }}</td>
+    <td>{{ servicio.cliente.personaContacto }}</td>
   </tr>
 
   <tr>
     <td>Teléfono de contacto</td>
-    <td>{{ cliente.telefonoContacto }}</td>
+    <td>{{ servicio.cliente.telefonoContacto }}</td>
   </tr>
 
   <tr>
     <td>Teléfono móvil de contacto</td>
-    <td>{{ cliente.telefonoMovilContacto }}</td>
+    <td>{{ servicio.cliente.telefonoMovilContacto }}</td>
   </tr>
 
   <tr>
     <td>Razón social</td>
-    <td>{{ cliente.razonSocial }}</td>
+    <td>{{ servicio.cliente.razonSocial }}</td>
   </tr>
+
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+</table>
+
+<table class="table table-striped">
+
+  {% set contador = 1 %}
+
+  {% for servicio in servicios %}
+  {% if servicio.cliente.id == id %}
+  <tr>
+    <td>Servicio {{ contador }}</td>
+    <td>{{ servicio.Fecha.date }}</td>
+  </tr>
+
+  {% set contador = contador + 1 %}
 
   {% endif %}
   {% endfor %}
 </table>
+
 
 {% endblock %}

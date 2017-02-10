@@ -20,7 +20,7 @@ class ServicioController extends Controller
 
     public function servicioAllAction()
     {
-      $repository= $this->getDoctrine()->getRepository('PIGBundle:servicio');
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Servicio');
       $servicios = $repository->findAll();
         return $this->render('PIGBundle:Servicios:all.html.twig',array("servicios"=>$servicios));
     }
