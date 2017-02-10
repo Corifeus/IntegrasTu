@@ -18,12 +18,7 @@ class CateringType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('personaContacto', TextType::class)
-        ->add('telefonoContacto' ,TextType::class)
-        ->add('direccion' ,TextType::class)
-        ->add('fecha' ,DateType::class)
-        ->add('observaciones' ,TextType::class)
-        ->add('horaLlegada', TextType::class)
+        $builder->add('horaLlegada', TextType::class)
         ->add('horaInicio',TextType::class)
         ->add('horaFin',TextType::class)
         ->add('tipo' ,TextType::class)

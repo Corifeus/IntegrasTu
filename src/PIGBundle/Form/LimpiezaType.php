@@ -18,12 +18,7 @@ class LimpiezaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('personaContacto', TextType::class)
-        ->add('telefonoContacto' ,TextType::class)
-        ->add('direccion' ,TextType::class)
-        ->add('fecha' ,DateType::class)
-        ->add('observaciones' ,TextType::class)
-        ->add('productos',TextType::class)
+        $builder->add('productos',TextType::class)
         ->add('especificaciones',TextType::class)
         ->add('Salvar',SubmitType::class)
         ->add('Borrar',ResetType::class)         ;

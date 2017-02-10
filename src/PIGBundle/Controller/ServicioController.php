@@ -3,6 +3,14 @@
 namespace PIGBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use PIGBundle\Entity\Mantenimiento;
+use PIGBundle\Form\MantenimientoType;
+use PIGBundle\Entity\Catering;
+use PIGBundle\Form\CateringType;
+use PIGBundle\Entity\Limpieza;
+use PIGBundle\Form\LimpiezaType;
+use PIGBundle\Entity\Otro;
+use PIGBundle\Form\OtroType;
 use PIGBundle\Entity\Servicio;
 use PIGBundle\Form\ServicioType;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,10 +49,34 @@ class ServicioController extends Controller
     		$em->persist($servicio);
     		$em->flush();
 
+
+              $tipo=$servicio->getTipo();
+              switch($tipo){
+                case "Limpieza":
+                  return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
+                  break;
+
+                case "Catering":
+                  return $this->render('PIGBundle:Caterings:nuevoCaterings.html.twig',array("formCaterings"=>$form->createView() ));
+                  break;
+
+                case "Mantenimiento":
+                  return $this->render('PIGBundle:Mantenimientos:nuevoMantenimientos.html.twig',array("formmantenimientos"=>$form->createView() ));
+                  break;
+
+                case "Otro":
+                  return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
+                  break;
+
+                default:
+                  return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
+                  break;
+        }
     		return $this->redirectToRoute('Servicios_exito');
     	}
 
     	return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
+
     }
 
 

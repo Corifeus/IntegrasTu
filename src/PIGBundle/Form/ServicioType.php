@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ServicioType extends AbstractType
 {
@@ -24,6 +25,13 @@ class ServicioType extends AbstractType
         ->add('fecha' ,DateType::class)
         ->add('observaciones' ,TextType::class)
         ->add('estado' ,TextType::class)
+        ->add('tipo', ChoiceType::class, array(
+                'choices'  => array(
+                    'Limpieza' => 'Limpieza',
+                    'Catering' => 'Catering',
+                    'Mantenimiento' => 'Mantenimiento',
+                    'Otro' => 'Otro',
+                ), ))
         ->add('Salvar',SubmitType::class)
         ->add('Borrar',ResetType::class)         ;
     }

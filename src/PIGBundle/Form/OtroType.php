@@ -18,12 +18,7 @@ class OtroType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('personaContacto', TextType::class)
-        ->add('telefonoContacto' ,TextType::class)
-        ->add('direccion' ,TextType::class)
-        ->add('fecha' ,DateType::class)
-        ->add('observaciones' ,TextType::class)
-        ->add('especificaciones' ,TextType::class)
+        $builder->add('especificaciones' ,TextType::class)
         ->add('Salvar',SubmitType::class)
         ->add('Borrar',ResetType::class)          ;
     }

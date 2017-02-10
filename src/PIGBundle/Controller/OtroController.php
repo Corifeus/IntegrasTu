@@ -5,6 +5,8 @@ namespace PIGBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PIGBundle\Entity\Otro;
 use PIGBundle\Form\OtroType;
+use PIGBundle\Entity\Servicio;
+use PIGBundle\Form\ServicioType;
 use Symfony\Component\HttpFoundation\Request;
 
 class OtroController extends Controller
@@ -31,17 +33,17 @@ class OtroController extends Controller
     {
     	$otro=new Otro();
     	$form= $this->createForm(OtroType::class);
-
     	$form->handleRequest($request);
-    	if ($form->isSubmitted() && $form->isValid()) {
+    	if ($form->isSubmitted() && $form->isValid() ) {
+      		$otro = $form->getData();
+      		$em = $this->getDoctrine()->getManager();
+      		$em->persist($otro);
+      		$em->flush();
+          	return $this->redirectToRoute('otros_exito');
+        }
 
-    		$otro = $form->getData();
 
-    		$em = $this->getDoctrine()->getManager();
-    		$em->persist($otro);
-    		$em->flush();
 
-    		return $this->redirectToRoute('otros_exito');
     	}
 
     	return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
