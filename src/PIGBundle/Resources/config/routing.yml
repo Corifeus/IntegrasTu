@@ -50,6 +50,10 @@ Servicios_todos:
     path:     /servicios/all
     defaults: { _controller: PIGBundle:Servicio:servicioAll }
 
+Servicios_show:
+    path:     /servicios/show/{id}
+    defaults: { _controller: PIGBundle:Servicio:servicioShow }
+
 Servicios_exito:
     path:     /servicios/msgExito
     defaults: { _controller: PIGBundle:Servicio:msgExito }

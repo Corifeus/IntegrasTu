@@ -4,7 +4,7 @@
 {% block menubar %}
     {% for servicio in servicios %}
 
-        <li>{{ servicio.id }}</li>
+        <li><a href="/servicios/show/{{servicio.id}}">{{ servicio.id }}</a></li>
 
     {% endfor %}
 {% endblock %}
