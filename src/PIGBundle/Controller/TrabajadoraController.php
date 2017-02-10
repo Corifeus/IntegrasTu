@@ -11,7 +11,10 @@ class TrabajadoraController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('PIGBundle:Trabajadoras:index.html.twig');
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+      $trabajadoras = $repository->findAll();
+        return $this->render('PIGBundle:Trabajadoras:index.html.twig',array("trabajadoras"=>$trabajadoras));
+
     }
 
 
@@ -21,6 +24,13 @@ class TrabajadoraController extends Controller
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
       $trabajadoras = $repository->findAll();
         return $this->render('PIGBundle:Trabajadoras:all.html.twig',array("trabajadoras"=>$trabajadoras));
+    }
+
+    public function TrabajadoraShowAction($id)
+    {
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+      $trabajadoras = $repository->findAll();
+        return $this->render('PIGBundle:Trabajadoras:show.html.twig',array("trabajadoras"=>$trabajadoras, 'id'=>$id));
     }
 
 

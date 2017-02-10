@@ -1,5 +1,15 @@
-<a href="/"><img src="http://3.bp.blogspot.com/-h0LmXnazAQI/Tee5QD2FFQI/AAAAAAAAAAk/D3NutduIps8/s760/logo.jpg"></img></a>
-<h2>Bienvenido a la zona de las trabajadoras</h2>
+{% extends '::base.html.twig' %}
+{% block title %}PIG{% endblock %}
 
-<a href="/trabajadoras/new">Nueva trabajadoraa</a><br>
-<a href="/trabajadoras/all">Todas las trabajadoras</a>
+{% block menubar %}
+    {% for trabajadora in trabajadoras %}
+
+        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }}</a></li>
+
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+<!-- Portfolio Grid Section -->
+
+{% endblock %}

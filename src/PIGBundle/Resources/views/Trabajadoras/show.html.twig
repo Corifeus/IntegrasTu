@@ -1,0 +1,77 @@
+{% extends '::base.html.twig' %}
+{% block title %}PIG{% endblock %}
+
+{% block menubar %}
+    {% for trabajadora in trabajadoras %}
+
+        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }}</a></li>
+
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+<!-- Portfolio Grid Section -->
+<table class="table table-striped">
+
+
+  {% for trabajadora in trabajadoras %}
+  {% if trabajadora.id == id %}
+  <tr>
+    <td>Nombre</td>
+    <td>{{ trabajadora.nombre }}</td>
+  </tr>
+  <tr>
+    <td>Apellidos</td>
+    <td>{{ trabajadora.apellidos }}</td>
+  </tr>
+
+  <tr>
+      <td>Direccion</td>
+      <td>{{ trabajadora.direccion }}</td>
+  </tr>
+
+  <tr>
+    <td>Fecha de alta</td>
+    <td>{{ trabajadora.fechaAlta.date }}</td>
+  </tr>
+
+  <tr>
+    <td>Puesto</td>
+    <td>{{ trabajadora.puesto }}</td>
+  </tr>
+
+  <tr>
+    <td>Nº Cuenta bancaria</td>
+    <td>{{ trabajadora.noCuentaBanco }}</td>
+  </tr>
+
+  <tr>
+    <td>Nº Seguridad Social</td>
+    <td>{{ trabajadora.noSeguridadSocial }}</td>
+  </tr>
+
+  <tr>
+    <td>DNI</td>
+    <td>{{ trabajadora.dNI }}</td>
+  </tr>
+
+  <tr>
+    <td>Fecha de nacimiento</td>
+    <td>{{ trabajadora.fechaNac.date }}</td>
+  </tr>
+
+  <tr>
+    <td>Nº teléfono</td>
+    <td>{{ trabajadora.telefono }}</td>
+  </tr>
+
+  <tr>
+    <td>Estado</td>
+    <td>{{ trabajadora.estado }}</td>
+  </tr>
+
+  {% endif %}
+  {% endfor %}
+</table>
+
+{% endblock %}

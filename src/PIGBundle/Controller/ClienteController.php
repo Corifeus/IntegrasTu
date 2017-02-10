@@ -25,6 +25,13 @@ class ClienteController extends Controller
         return $this->render('PIGBundle:Clientes:all.html.twig',array("clientes"=>$clientes));
     }
 
+    public function ClienteShowAction($id)
+    {
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Cliente');
+      $clientes = $repository->findAll();
+        return $this->render('PIGBundle:Clientes:show.html.twig',array("clientes"=>$clientes, 'id'=>$id));
+    }
+
 
 
     public function nuevoClienteAction(Request $request)
