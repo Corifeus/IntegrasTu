@@ -122,3 +122,11 @@ button:focus{
   background-color: rgb(210, 41, 2);
   color: #f7f7f7;
 }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #f7f7f7;
+    cursor: default;
+    background-color: rgb(210, 41, 2);
+  
+    border-bottom-color: transparent;
+}
