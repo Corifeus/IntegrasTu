@@ -1,13 +1,5 @@
-{% extends '::base.html.twig' %}
+{% extends 'PIGBundle:Trabajadoras:index.html.twig' %}
 {% block title %}PIG{% endblock %}
-
-{% block menubar %}
-    {% for trabajadora in trabajadoras %}
-
-        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }}</a></li>
-
-    {% endfor %}
-{% endblock %}
 
 {% block body %}
 <!-- Portfolio Grid Section -->

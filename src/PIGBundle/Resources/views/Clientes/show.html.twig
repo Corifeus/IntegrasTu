@@ -1,13 +1,5 @@
-{% extends '::base.html.twig' %}
+{% extends 'PIGBundle:Clientes:index.html.twig' %}
 {% block title %}PIG{% endblock %}
-
-{% block menubar %}
-    {% for cliente in clientes %}
-
-        <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
-
-    {% endfor %}
-{% endblock %}
 
 {% block body %}
 <table class="table table-striped">
