@@ -14,7 +14,6 @@ class TrabajadoraController extends Controller
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
       $trabajadoras = $repository->findAll();
         return $this->render('PIGBundle:Trabajadoras:index.html.twig',array("trabajadoras"=>$trabajadoras));
-
     }
 
 
@@ -26,9 +25,28 @@ class TrabajadoraController extends Controller
         return $this->render('PIGBundle:Trabajadoras:all.html.twig',array("trabajadoras"=>$trabajadoras));
     }
 
+
+    public function TrabajadoraHorarioAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $query = $em->createQuery(
+          'SELECT distinct s.Fecha
+          FROM trabajadora_servicio t,trabajadora tra,servicio s
+          WHERE tra.id > :identificador
+          order by s.Fecha asc;'
+      )->setParameter('identificador', $id);
+
+      $horario = $query->getResult();
+      return $this->render('PIGBundle:Trabajadoras:horario.html.twig',array("horarios"=>$horario));
+    }
+
+
     public function TrabajadoraShowAction($id)
     {
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+
+      $query = "select distinct s.Fecha from trabajadora_servicio t,trabajadora tra,servicio s where tra.id=" . $id . " order by s.Fecha asc;";
+
       $trabajadoras = $repository->findAll();
         return $this->render('PIGBundle:Trabajadoras:show.html.twig',array("trabajadoras"=>$trabajadoras, 'id'=>$id));
     }

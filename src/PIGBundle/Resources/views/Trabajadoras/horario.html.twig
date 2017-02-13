@@ -1,0 +1,17 @@
+{% set counter = 1 %}
+
+<table>
+  {% for horario in horarios %}
+
+    <tr>
+      <td>Horario {{counter}}</td>
+    </tr>
+
+    <tr>
+      <td>{{ horario.Fecha }}</td>
+    </tr>
+
+    {% set counter = counter + 1 %}
+
+  {% endfor %}
+</table>
