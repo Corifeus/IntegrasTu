@@ -10,8 +10,15 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="otro")
  * @ORM\Entity(repositoryClass="PIGBundle\Repository\OtroRepository")
  */
-class Otro extends Servicio
+class Otro
 {
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   */
+  private $id;
 
     /**
      * @var string
@@ -43,5 +50,29 @@ class Otro extends Servicio
     public function getEspecificaciones()
     {
         return $this->especificaciones;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return Otro
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

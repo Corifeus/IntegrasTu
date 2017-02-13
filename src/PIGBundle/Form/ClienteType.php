@@ -20,6 +20,7 @@ class ClienteType extends AbstractType
     {
         $builder
             ->add('CIF',TextType::class)
+            ->add('nombre',TextType::class)
             ->add('DomicilioFiscal',TextType::class)
             ->add('cP',IntegerType::class)
             ->add('Municipio',TextType::class)
