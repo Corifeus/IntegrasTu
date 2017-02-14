@@ -3,10 +3,10 @@
 
 {% block menubar %}
 
-  {% for cliente in datos[0] %}
+    {% for cliente in datos[0] %}
         <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
 
-        {% endfor %}
+    {% endfor %}
 {% endblock %}
 
 {% block body %}
@@ -70,13 +70,13 @@
 
   {% set counter = 1 %}
   {% for servicio in datos[1] %}
-  {% if servicio.cliente.id == id %}
-  <tr>
-    <td>Servicio {{counter}}</td>
-    <td>{{ servicio.fecha.date }}</td>
-    {% set counter = counter + 1 %}
-  </tr>
-  {% endif %}
+    {% if servicio.cliente.id == id %}
+      <tr>
+        <td>Servicio {{counter}}</td>
+        <td>{{ servicio.fecha.date }}</td>
+        {% set counter = counter + 1 %}
+      </tr>
+    {% endif %}
   {% endfor %}
   {% endif %}
   {% endfor %}
