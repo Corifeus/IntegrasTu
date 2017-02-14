@@ -13,18 +13,24 @@ use Doctrine\ORM\Mapping as ORM;
 class Servicio
 {
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="servicio")
-     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
-     */
-    private $cliente;
+  /**
+   * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="servicio")
+   * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+   */
+  private $cliente;
+
+
+   /**
+   * @ORM\ManyToMany(targetEntity="servicio", mappedBy="servicio")
+   */
+  private $servicio;
 
     /**
      * @var \Doctrine\Common\Collections\Collection|Servicio[]
      *
      * @ORM\ManyToMany(targetEntity="Trabajadora", mappedBy="Servicio")
      */
-    protected $Trabajadora;
+    protected $trabajadora;
 
     /**
      * @var int
@@ -295,5 +301,39 @@ class Servicio
     public function getTrabajadora()
     {
         return $this->trabajadora;
+    }
+
+    /**
+     * Add servicio
+     *
+     * @param \PIGBundle\Entity\Trabajadora $servicio
+     *
+     * @return Servicio
+     */
+    public function addServicio(\PIGBundle\Entity\Trabajadora $servicio)
+    {
+        $this->servicio[] = $servicio;
+
+        return $this;
+    }
+
+    /**
+     * Remove servicio
+     *
+     * @param \PIGBundle\Entity\Trabajadora $servicio
+     */
+    public function removeServicio(\PIGBundle\Entity\Trabajadora $servicio)
+    {
+        $this->servicio->removeElement($servicio);
+    }
+
+    /**
+     * Get servicio
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServicio()
+    {
+        return $this->servicio;
     }
 }

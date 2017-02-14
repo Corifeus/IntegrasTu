@@ -14,20 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Trabajadora
 {
   /**
-   * @var \Doctrine\Common\Collections\Collection|Servicio[]
-   *
-   * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="Trabajadora")
-   * @ORM\JoinTable(
-   *  name="Trabajadora_Servicio",
-   *  joinColumns={
-   *      @ORM\JoinColumn(name="Trabajadora_id", referencedColumnName="id")
-   *  },
-   *  inverseJoinColumns={
-   *      @ORM\JoinColumn(name="Servicio_id", referencedColumnName="id")
-   *  }
-   * )
+   * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="trabajadora")
+   * @ORM\JoinTable(name="ServiciosDeUnaTrabajadora")
    */
-  protected $Servicio;
+  private $servicio;
 
     /**
      * @var int

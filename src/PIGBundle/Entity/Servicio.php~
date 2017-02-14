@@ -13,21 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
 class Servicio
 {
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="servicio")
-     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
-     */
-
-    private $cliente;
+   /**
+   * @ORM\ManyToMany(targetEntity="Trabajadora", mappedBy="servicio")
+   */
+  private $servicio;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Trabajadora", inversedBy="servicio", cascade={"persist"})
-     * @ORM\JoinTable(name="servicio_trabajadora",
-     * joinColumns={@ORM\JoinColumn(name="trabajadora_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="trabajadora_id", referencedColumnName="id")}
-     * )
+     * @var \Doctrine\Common\Collections\Collection|Servicio[]
+     *
+     * @ORM\ManyToMany(targetEntity="Trabajadora", mappedBy="Servicio")
      */
-    private $trabajadora;
+    protected $Trabajadora;
 
     /**
      * @var int
@@ -234,5 +230,69 @@ class Servicio
     {
         return $this->estado;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->trabajadora = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set cliente
+     *
+     * @param \PIGBundle\Entity\Cliente $cliente
+     *
+     * @return Servicio
+     */
+    public function setCliente(\PIGBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \PIGBundle\Entity\Cliente
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Add trabajadora
+     *
+     * @param \PIGBundle\Entity\Trabajadora $trabajadora
+     *
+     * @return Servicio
+     */
+    public function addTrabajadora(\PIGBundle\Entity\Trabajadora $trabajadora)
+    {
+        $this->trabajadora[] = $trabajadora;
+
+        return $this;
+    }
+
+    /**
+     * Remove trabajadora
+     *
+     * @param \PIGBundle\Entity\Trabajadora $trabajadora
+     */
+    public function removeTrabajadora(\PIGBundle\Entity\Trabajadora $trabajadora)
+    {
+        $this->trabajadora->removeElement($trabajadora);
+    }
+
+    /**
+     * Get trabajadora
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTrabajadora()
+    {
+        return $this->trabajadora;
+    }
+}

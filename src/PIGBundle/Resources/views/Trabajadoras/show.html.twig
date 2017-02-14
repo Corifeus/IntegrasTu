@@ -1,77 +1,43 @@
-{% extends '::base.html.twig' %}
-{% block title %}PIG{% endblock %}
+<table>
 
-{% block menubar %}
-    {% for trabajadora in trabajadoras %}
-
-        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }}</a></li>
-
-    {% endfor %}
-{% endblock %}
-
-{% block body %}
-<!-- Portfolio Grid Section -->
-<table class="table table-striped">
-
-
-  {% for trabajadora in trabajadoras %}
-  {% if trabajadora.id == id %}
   <tr>
     <td>Nombre</td>
-    <td>{{ trabajadora.nombre }}</td>
-  </tr>
-  <tr>
     <td>Apellidos</td>
-    <td>{{ trabajadora.apellidos }}</td>
-  </tr>
-
-  <tr>
-      <td>Direccion</td>
-      <td>{{ trabajadora.direccion }}</td>
-  </tr>
-
-  <tr>
+    <td>Direccion</td>
     <td>Fecha de alta</td>
-    <td>{{ trabajadora.fechaAlta.date }}</td>
-  </tr>
-
-  <tr>
     <td>Puesto</td>
-    <td>{{ trabajadora.puesto }}</td>
-  </tr>
-
-  <tr>
     <td>Nº Cuenta bancaria</td>
-    <td>{{ trabajadora.noCuentaBanco }}</td>
-  </tr>
-
-  <tr>
     <td>Nº Seguridad Social</td>
-    <td>{{ trabajadora.noSeguridadSocial }}</td>
-  </tr>
-
-  <tr>
     <td>DNI</td>
-    <td>{{ trabajadora.dNI }}</td>
-  </tr>
-
-  <tr>
     <td>Fecha de nacimiento</td>
-    <td>{{ trabajadora.fechaNac.date }}</td>
-  </tr>
-
-  <tr>
-    <td>Nº teléfono</td>
-    <td>{{ trabajadora.telefono }}</td>
-  </tr>
-
-  <tr>
+    <td>Teléfono</td>
     <td>Estado</td>
-    <td>{{ trabajadora.estado }}</td>
   </tr>
 
-  {% endif %}
-  {% endfor %}
+    <tr>
+      <td>{{ datos[0].nombre }}</td>
+      <td>{{ datos[0].apellidos }}</td>
+      <td>{{ datos[0].direccion }}</td>
+      <td>{{ datos[0].fechaAlta.date }}</td>
+      <td>{{ datos[0].puesto }}</td>
+      <td>{{ datos[0].noCuentaBanco }}</td>
+      <td>{{ datos[0].noSeguridadSocial }}</td>
+      <td>{{ datos[0].dNI }}</td>
+      <td>{{ datos[0].fechaNac.date }}</td>
+      <td>{{ datos[0].telefono }}</td>
+      <td>{{ datos[0].estado }}</td>
+    </tr>
 </table>
 
-{% endblock %}
+<table>
+  {% set counter = 1 %}
+  {% for horas in datos[1] %}
+
+  <tr>
+    <td>Horario {{counter}}</td>
+    <td>{{horas.Fecha}}</td>
+    {% set counter = counter + 1 %}
+  </tr>
+
+  {% endfor %}
+</table>
