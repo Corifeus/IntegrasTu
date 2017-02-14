@@ -21,9 +21,7 @@ class LimpiezaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $url=$_SERVER['REQUEST_URI'];
-        //var_dump($url);
         $id=explode("/",$url);
-        //var_dump($id);
         $builder->add('id_servicio',HiddenType::class, array('data' => $id[3]))
         ->add('productos',TextType::class)
         ->add('especificaciones',TextType::class)

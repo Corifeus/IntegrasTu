@@ -116,4 +116,28 @@ class Limpieza
     {
         return $this->id;
     }
+
+    /**
+     * Set idServicio
+     *
+     * @param integer $idServicio
+     *
+     * @return Limpieza
+     */
+    public function setIdServicio($idServicio)
+    {
+        $this->id_servicio = $idServicio;
+
+        return $this;
+    }
+
+    /**
+     * Get idServicio
+     *
+     * @return integer
+     */
+    public function getIdServicio()
+    {
+        return $this->id_servicio;
+    }
 }

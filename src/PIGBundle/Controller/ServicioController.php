@@ -62,21 +62,21 @@ class ServicioController extends Controller
                 case "Limpieza":
                   $id = $servicio->getId();
                   return $this->redirect('/servicios/newLimpieza/'.$id);
-                  //return $this->redirectToRoute('Limpiezas_nuevo');
-                  //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView(),'id'=>$id));
-
                 break;
 
                 case "Catering":
-                  return $this->redirectToRoute('Caterings_nuevo');
+                  $id = $servicio->getId();
+                  return $this->redirect('/servicios/newCatering/'.$id);
                   break;
 
                 case "Mantenimiento":
-                  return $this->redirectToRoute('Mantenimientos_nuevo');
+                $id = $servicio->getId();
+                return $this->redirect('/servicios/newMantenimiento/'.$id);
                   break;
 
                 case "Otro":
-                  return $this->redirectToRoute('Otros_nuevo');
+                $id = $servicio->getId();
+                return $this->redirect('/servicios/newOtro/'.$id);
                   break;
 
                 default:

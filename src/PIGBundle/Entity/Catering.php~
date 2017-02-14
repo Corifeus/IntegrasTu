@@ -20,6 +20,13 @@ class Catering
    */
   private $id;
 
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id_servicio", type="integer")
+   */
+  private $id_servicio;
+
     /**
      * @var string
      *
