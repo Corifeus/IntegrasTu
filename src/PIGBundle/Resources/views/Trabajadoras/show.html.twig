@@ -1,35 +1,75 @@
-<table>
+{% extends '::base.html.twig' %}
+{% block title %}PIG{% endblock %}
+
+{% block menubar %}
+
+  {% for trabajadora in datos[2] %}
+        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }}</a></li>
+
+        {% endfor %}
+{% endblock %}
+
+
+{% block body %}
+<table class="table table-striped">
 
   <tr>
     <td>Nombre</td>
-    <td>Apellidos</td>
-    <td>Direccion</td>
-    <td>Fecha de alta</td>
-    <td>Puesto</td>
-    <td>Nº Cuenta bancaria</td>
-    <td>Nº Seguridad Social</td>
-    <td>DNI</td>
-    <td>Fecha de nacimiento</td>
-    <td>Teléfono</td>
-    <td>Estado</td>
+    <td>{{ datos[0].nombre }}</td>
   </tr>
 
-    <tr>
-      <td>{{ datos[0].nombre }}</td>
-      <td>{{ datos[0].apellidos }}</td>
-      <td>{{ datos[0].direccion }}</td>
-      <td>{{ datos[0].fechaAlta.date }}</td>
-      <td>{{ datos[0].puesto }}</td>
-      <td>{{ datos[0].noCuentaBanco }}</td>
-      <td>{{ datos[0].noSeguridadSocial }}</td>
-      <td>{{ datos[0].dNI }}</td>
-      <td>{{ datos[0].fechaNac.date }}</td>
-      <td>{{ datos[0].telefono }}</td>
-      <td>{{ datos[0].estado }}</td>
-    </tr>
+  <tr>
+    <td>Apellidos</td>
+    <td>{{ datos[0].apellidos }}</td>
+  </tr>
+
+  <tr>
+    <td>Direccion</td>
+    <td>{{ datos[0].direccion }}</td>
+  </tr>
+
+  <tr>
+    <td>Fecha de alta</td>
+    <td>{{ datos[0].fechaAlta.date }}</td>
+  </tr>
+
+  <tr>
+    <td>Puesto</td>
+    <td>{{ datos[0].puesto }}</td>
+  </tr>
+
+  <tr>
+    <td>Nº Cuenta bancaria</td>
+    <td>{{ datos[0].noCuentaBanco }}</td>
+  </tr>
+
+  <tr>
+    <td>Nº Seguridad Social</td>
+    <td>{{ datos[0].noSeguridadSocial }}</td>
+  </tr>
+
+  <tr>
+    <td>DNI</td>
+    <td>{{ datos[0].dNI }}</td>
+  </tr>
+
+  <tr>
+    <td>Fecha de nacimiento</td>
+    <td>{{ datos[0].fechaNac.date }}</td>
+  </tr>
+
+  <tr>
+    <td>Teléfono</td>
+    <td>{{ datos[0].telefono }}</td>
+  </tr>
+
+  <tr>
+    <td>Estado</td>
+    <td>{{ datos[0].estado }}</td>
+  </tr>
 </table>
 
-<table>
+<table class="table table-striped">
   {% set counter = 1 %}
   {% for horas in datos[1] %}
 
@@ -41,3 +81,5 @@
 
   {% endfor %}
 </table>
+
+{% endblock %}

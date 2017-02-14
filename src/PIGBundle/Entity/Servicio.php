@@ -19,12 +19,6 @@ class Servicio
    */
   private $cliente;
 
-
-   /**
-   * @ORM\ManyToMany(targetEntity="servicio", mappedBy="servicio")
-   */
-  private $servicio;
-
     /**
      * @var \Doctrine\Common\Collections\Collection|Servicio[]
      *
