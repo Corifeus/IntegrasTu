@@ -29,19 +29,20 @@ class LimpiezaController extends Controller
 
     public function nuevoLimpiezaAction(Request $request)
     {
-    	$limpieza=new limpieza();
-    	$form= $this->createForm(limpiezaType::class);
 
-    	$form->handleRequest($request);
+      $limpieza=new Limpieza();
+      $form= $this->createForm(LimpiezaType::class);
+
+      $form->handleRequest($request);
     	if ($form->isSubmitted() && $form->isValid()) {
+          $limpieza = $form->getData();
 
-    		$limpieza = $form->getData();
+          $em = $this->getDoctrine()->getManager();
+          //$em->persist($servicio);
+          $em->persist($limpieza);
+          $em->flush();
 
-    		$em = $this->getDoctrine()->getManager();
-    		$em->persist($limpieza);
-    		$em->flush();
-
-    		return $this->redirectToRoute('limpiezas_exito');
+      		return $this->redirectToRoute('Limpiezas_nuevo');
     	}
 
     	return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));

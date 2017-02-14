@@ -3,7 +3,6 @@
 namespace PIGBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Servicio
  *
@@ -15,7 +14,7 @@ class Servicio
 
     /**
      * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="servicio")
-     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="cliente", referencedColumnName="id")
      */
 
     private $cliente;
@@ -249,6 +248,7 @@ class Servicio
     }
 
     /**
+<<<<<<< HEAD
      * Set tipo
      *
      * @param string $tipo
