@@ -248,6 +248,7 @@ class Servicio
     }
 
     /**
+<<<<<<< HEAD
      * Set tipo
      *
      * @param string $tipo

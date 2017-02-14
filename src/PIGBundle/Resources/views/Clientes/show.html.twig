@@ -2,16 +2,16 @@
 {% block title %}PIG{% endblock %}
 
 {% block menubar %}
-    {% for cliente in clientes %}
 
+  {% for cliente in datos[0] %}
         <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
 
-    {% endfor %}
+        {% endfor %}
 {% endblock %}
 
 {% block body %}
 <table class="table table-striped">
-  {% for cliente in clientes %}
+  {% for cliente in datos[0] %}
   {% if cliente.id == id %}
   <tr>
     <td>Nombre</td>
@@ -67,8 +67,19 @@
     <td>{{ cliente.razonSocial }}</td>
   </tr>
 
+
+  {% set counter = 1 %}
+  {% for servicio in datos[1] %}
+  {% if servicio.cliente.id == id %}
+  <tr>
+    <td>Servicio {{counter}}</td>
+    <td>{{ servicio.fecha.date }}</td>
+    {% set counter = counter + 1 %}
+  </tr>
   {% endif %}
   {% endfor %}
-</table>
+  {% endif %}
+  {% endfor %}
 
+</table>
 {% endblock %}

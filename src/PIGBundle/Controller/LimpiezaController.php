@@ -42,7 +42,7 @@ class LimpiezaController extends Controller
           $em->persist($limpieza);
           $em->flush();
 
-      		return $this->redirectToRoute('Servicios_exito');
+      		return $this->redirectToRoute('Limpiezas_nuevo');
     	}
 
     	return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
