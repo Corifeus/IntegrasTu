@@ -18,8 +18,16 @@ class Mantenimiento
    *
    * @ORM\Column(name="id", type="integer")
    * @ORM\Id
+   * @ORM\GeneratedValue(strategy="IDENTITY")
    */
   private $id;
+
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id_servicio", type="integer")
+   */
+  private $id_servicio;
 
   /**
    * @var string
@@ -106,5 +114,29 @@ class Mantenimiento
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set idServicio
+     *
+     * @param integer $idServicio
+     *
+     * @return Mantenimiento
+     */
+    public function setIdServicio($idServicio)
+    {
+        $this->id_servicio = $idServicio;
+
+        return $this;
+    }
+
+    /**
+     * Get idServicio
+     *
+     * @return integer
+     */
+    public function getIdServicio()
+    {
+        return $this->id_servicio;
     }
 }

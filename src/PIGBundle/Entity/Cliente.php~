@@ -402,4 +402,47 @@ class Cliente
     {
         return $this->razonSocial;
     }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->servicio = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add servicio
+     *
+     * @param \PIGBundle\Entity\Servicio $servicio
+     *
+     * @return Cliente
+     */
+    public function addServicio(\PIGBundle\Entity\Servicio $servicio)
+    {
+        $this->servicio[] = $servicio;
+
+        return $this;
+    }
+
+    /**
+     * Remove servicio
+     *
+     * @param \PIGBundle\Entity\Servicio $servicio
+     */
+    public function removeServicio(\PIGBundle\Entity\Servicio $servicio)
+    {
+        $this->servicio->removeElement($servicio);
+    }
+
+    /**
+     * Get servicio
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServicio()
+    {
+        return $this->servicio;
+    }
+
 }
