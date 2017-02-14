@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use PIGBundle\Entity\Servicio;
 class LimpiezaType extends AbstractType
@@ -19,9 +20,11 @@ class LimpiezaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('id', EntityType::class, array(
-              'class' => 'PIGBundle:Servicio',
-              'choice_label' => 'id',))
+        $url=$_SERVER['REQUEST_URI'];
+        //var_dump($url);
+        $id=explode("/",$url);
+        //var_dump($id);
+        $builder->add('id_servicio',HiddenType::class, array('data' => $id[3]))
         ->add('productos',TextType::class)
         ->add('especificaciones',TextType::class)
         ->add('Salvar',SubmitType::class)

@@ -71,5 +71,5 @@ Caterings_nuevo:
     defaults: { _controller: PIGBundle:Catering:nuevoCatering }
 
 Limpiezas_nuevo:
-    path:     /servicios/newLimpieza
+    path:     /servicios/newLimpieza/{id}
     defaults: { _controller: PIGBundle:Limpieza:nuevoLimpieza }

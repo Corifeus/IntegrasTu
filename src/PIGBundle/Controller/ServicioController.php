@@ -58,38 +58,33 @@ class ServicioController extends Controller
 
 
               $tipo=$servicio->getTipo();
-              /*switch($tipo){
+              switch($tipo){
                 case "Limpieza":
-
-                  return $this->redirectToRoute('Limpiezas_nuevo');
-                  //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form2->createView() ));
+                  $id = $servicio->getId();
+                  return $this->redirect('/servicios/newLimpieza/'.$id);
+                  //return $this->redirectToRoute('Limpiezas_nuevo');
+                  //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView(),'id'=>$id));
 
                 break;
 
                 case "Catering":
-                  $catering=new Catering();
-                  $form2= $this->createForm(CateringType::class);
-                  return $this->render('PIGBundle:Caterings:nuevoCaterings.html.twig',array("formCaterings"=>$form2->createView() ));
+                  return $this->redirectToRoute('Caterings_nuevo');
                   break;
 
                 case "Mantenimiento":
-                  $mantenimiento=new Mantenimiento();
-                  $form2= $this->createForm(MantenimientoType::class);
-                  return $this->render('PIGBundle:Mantenimientos:nuevoMantenimientos.html.twig',array("formmantenimientos"=>$form2->createView() ));
+                  return $this->redirectToRoute('Mantenimientos_nuevo');
                   break;
 
                 case "Otro":
-                  $otro=new Otro();
-                  $form2= $this->createForm(OtroType::class);
-                  return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form2->createView() ));
+                  return $this->redirectToRoute('Otros_nuevo');
                   break;
 
                 default:
                   return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
                   break;
-        }*/
+        }
         //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
-    		return $this->redirectToRoute('Servicios_exito');
+    		return $this->redirectToRoute('Limpiezas_nuevo');
     	}
       //return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
     	return $this->render('PIGBundle:Servicios:nuevoServicio.html.twig',array("formServicios"=>$form->createView() ));
