@@ -14,7 +14,6 @@ class TrabajadoraController extends Controller
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
       $trabajadoras = $repository->findAll();
         return $this->render('PIGBundle:Trabajadoras:index.html.twig',array("trabajadoras"=>$trabajadoras));
-
     }
 
 
@@ -26,14 +25,29 @@ class TrabajadoraController extends Controller
         return $this->render('PIGBundle:Trabajadoras:all.html.twig',array("trabajadoras"=>$trabajadoras));
     }
 
+
     public function TrabajadoraShowAction($id)
     {
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+
+      $trabajadora = $repository->findOneById($id);
+
       $trabajadoras = $repository->findAll();
-        return $this->render('PIGBundle:Trabajadoras:show.html.twig',array("trabajadoras"=>$trabajadoras, 'id'=>$id));
+
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("select s.Fecha
+      from trabajadora t,servicio s,serviciosdeunatrabajadora ser
+      where t.id=ser.trabajadora_id and s.id=ser.servicio_id and t.id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+      $results = $statement->fetchAll();
+
+
+      $datos=array($trabajadora,$results,$trabajadoras);
+
+        return $this->render('PIGBundle:Trabajadoras:show.html.twig',array("datos"=>$datos, 'id'=>$id));
     }
-
-
 
     public function nuevaTrabajadoraAction(Request $request)
     {

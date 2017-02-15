@@ -23,24 +23,35 @@
   </tr>
 
   <tr>
-    <td>CP</td>
+    <td>Telefono de Contacto</td>
     <td>{{ servicio.telefonoContacto }}</td>
   </tr>
 
   <tr>
-    <td>Municipio</td>
+    <td>Fecha de Registro</td>
     <td>{{ servicio.fecha.date }}</td>
   </tr>
 
   <tr>
-    <td>Provincia</td>
+    <td>Observaciones</td>
     <td>{{ servicio.observaciones }}</td>
   </tr>
 
   <tr>
-    <td>Nº Cuenta bancaria</td>
+    <td>Estado del Servicio</td>
     <td>{{ servicio.estado }}</td>
   </tr>
+
+  <tr>
+    <td>Direccion del Servicio</td>
+    <td>{{ servicio.direccion }}</td>
+  </tr>
+
+  <tr>
+    <td>Tipo de Servicio</td>
+    <td>{{ servicio.tipo }}</td>
+  </tr>
+
   {% endif %}
   {% endfor %}
 </table>

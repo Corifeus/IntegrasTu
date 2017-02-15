@@ -34,6 +34,10 @@ trabajadoras_todas:
     path:     /trabajadoras/show/{id}
     defaults: { _controller: PIGBundle:Trabajadora:trabajadoraShow }
 
+trabajadoras_horario:
+    path:     /trabajadoras/horario/{id}
+    defaults: { _controller: PIGBundle:Trabajadora:trabajadoraHorario }
+
 trabajadoras_exito:
     path:     /trabajadoras/msgExito
     defaults: { _controller: PIGBundle:Trabajadora:msgExito }
@@ -60,19 +64,19 @@ Servicios_exito:
     defaults: { _controller: PIGBundle:Servicio:msgExito }
 
 Otros_nuevo:
-    path:     /servicios/newOtro
+    path:     /servicios/newOtro/{id}
     defaults: { _controller: PIGBundle:Otro:nuevoOtro }
 
 Mantenimientos_nuevo:
-    path:     /servicios/newMantenimiento
+    path:     /servicios/newMantenimiento/{id}
     defaults: { _controller: PIGBundle:Mantenimiento:nuevoMantenimiento }
 
 Caterings_nuevo:
-    path:     /servicios/newCatering
+    path:     /servicios/newCatering/{id}
     defaults: { _controller: PIGBundle:Catering:nuevoCatering }
 
 Limpiezas_nuevo:
-    path:     /servicios/newLimpieza
+    path:     /servicios/newLimpieza/{id}
     defaults: { _controller: PIGBundle:Limpieza:nuevoLimpieza }
 
 usuario_nuevo:

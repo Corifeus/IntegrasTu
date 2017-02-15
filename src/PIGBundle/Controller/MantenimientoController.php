@@ -29,22 +29,20 @@ class MantenimientoController extends Controller
 
     public function nuevoMantenimientoAction(Request $request)
     {
-    	$mantenimiento=new Mantenimiento();
-    	$form= $this->createForm(MantenimientoType::class);
+      $mantenimiento=new Mantenimiento();
+      $form= $this->createForm(MantenimientoType::class);
 
-    	$form->handleRequest($request);
+      $form->handleRequest($request);
     	if ($form->isSubmitted() && $form->isValid()) {
+          $mantenimiento = $form->getData();
+          $em = $this->getDoctrine()->getManager();
 
-    		$mantenimiento = $form->getData();
-
-    		$em = $this->getDoctrine()->getManager();
-    		$em->persist($mantenimiento);
-    		$em->flush();
-
-    		return $this->redirectToRoute('mantenimientos_exito');
+          $em->persist($mantenimiento);
+          $em->flush();
+      		return $this->render('PIGBundle:Default:index.html.twig');
     	}
 
-    	return $this->render('PIGBundle:Mantenimientos:nuevoMantenimientos.html.twig',array("formmantenimientos"=>$form->createView() ));
+    	return $this->render('PIGBundle:Mantenimientos:nuevoMantenimientos.html.twig',array("formMantenimientos"=>$form->createView() ));
     }
 
 
