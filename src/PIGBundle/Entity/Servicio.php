@@ -3,7 +3,6 @@
 namespace PIGBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Servicio
  *
@@ -13,21 +12,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Servicio
 {
 
+
     /**
      * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="servicio")
-     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="cliente", referencedColumnName="id")
      */
 
     private $cliente;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Trabajadora", inversedBy="servicio", cascade={"persist"})
-     * @ORM\JoinTable(name="servicio_trabajadora",
-     * joinColumns={@ORM\JoinColumn(name="trabajadora_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="trabajadora_id", referencedColumnName="id")}
-     * )
+     * @var \Doctrine\Common\Collections\Collection|Servicio[]
+     *
+     * @ORM\ManyToMany(targetEntity="Trabajadora", mappedBy="Servicio")
      */
-    private $trabajadora;
+    protected $trabajadora;
 
     /**
      * @var int
@@ -249,6 +247,7 @@ class Servicio
     }
 
     /**
+<<<<<<< HEAD
      * Set tipo
      *
      * @param string $tipo
@@ -328,5 +327,39 @@ class Servicio
     public function getTrabajadora()
     {
         return $this->trabajadora;
+    }
+
+    /**
+     * Add servicio
+     *
+     * @param \PIGBundle\Entity\Trabajadora $servicio
+     *
+     * @return Servicio
+     */
+    public function addServicio(\PIGBundle\Entity\Trabajadora $servicio)
+    {
+        $this->servicio[] = $servicio;
+
+        return $this;
+    }
+
+    /**
+     * Remove servicio
+     *
+     * @param \PIGBundle\Entity\Trabajadora $servicio
+     */
+    public function removeServicio(\PIGBundle\Entity\Trabajadora $servicio)
+    {
+        $this->servicio->removeElement($servicio);
+    }
+
+    /**
+     * Get servicio
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServicio()
+    {
+        return $this->servicio;
     }
 }

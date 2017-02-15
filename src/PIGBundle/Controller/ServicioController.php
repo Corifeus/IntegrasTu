@@ -60,29 +60,34 @@ class ServicioController extends Controller
               $tipo=$servicio->getTipo();
               switch($tipo){
                 case "Limpieza":
-                  return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
-                  break;
+                  $id = $servicio->getId();
+                  return $this->redirect('/servicios/newLimpieza/'.$id);
+                break;
 
                 case "Catering":
-                  return $this->render('PIGBundle:Caterings:nuevoCaterings.html.twig',array("formCaterings"=>$form->createView() ));
+                  $id = $servicio->getId();
+                  return $this->redirect('/servicios/newCatering/'.$id);
                   break;
 
                 case "Mantenimiento":
-                  return $this->render('PIGBundle:Mantenimientos:nuevoMantenimientos.html.twig',array("formmantenimientos"=>$form->createView() ));
+                $id = $servicio->getId();
+                return $this->redirect('/servicios/newMantenimiento/'.$id);
                   break;
 
                 case "Otro":
-                  return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
+                $id = $servicio->getId();
+                return $this->redirect('/servicios/newOtro/'.$id);
                   break;
 
                 default:
                   return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
                   break;
         }
-    		return $this->redirectToRoute('Servicios_exito');
+        //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
+    		return $this->redirectToRoute('Limpiezas_nuevo');
     	}
-
-    	return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
+      //return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
+    	return $this->render('PIGBundle:Servicios:nuevoServicio.html.twig',array("formServicios"=>$form->createView() ));
 
     }
 
@@ -90,6 +95,7 @@ class ServicioController extends Controller
 
     public function msgExitoAction()
     {
+        //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
         return $this->render('PIGBundle:Servicios:msgExito.html.twig');
     }
 

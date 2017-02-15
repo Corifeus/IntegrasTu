@@ -10,16 +10,29 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="mantenimiento")
  * @ORM\Entity(repositoryClass="PIGBundle\Repository\MantenimientoRepository")
  */
-class Mantenimiento extends Servicio
+class Mantenimiento
 {
 
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   */
+  private $id;
 
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id_servicio", type="integer")
+   */
+  private $id_servicio;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="material", type="string", length=255)
-     */
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="material", type="string", length=255)
+   */
     private $material;
 
     /**
@@ -33,7 +46,7 @@ class Mantenimiento extends Servicio
     /**
      * Set material
      *
-     * @param array $material
+     * @param string $material
      *
      * @return Mantenimiento
      */
@@ -47,7 +60,7 @@ class Mantenimiento extends Servicio
     /**
      * Get material
      *
-     * @return array
+     * @return string
      */
     public function getMaterial()
     {
@@ -76,5 +89,29 @@ class Mantenimiento extends Servicio
     public function getEspecificaciones()
     {
         return $this->especificaciones;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return Mantenimiento
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

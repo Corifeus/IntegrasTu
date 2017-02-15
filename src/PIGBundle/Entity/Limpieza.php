@@ -10,9 +10,23 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="limpieza")
   * @ORM\Entity(repositoryClass="MyApp\PIGBundle\Repository\LimpiezaRepository")
   */
-class Limpieza extends Servicio
+class Limpieza
 {
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="IDENTITY")
+   */
+  private $id;
 
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id_servicio", type="integer")
+   */
+  private $id_servicio;
 
   /**
    * @var string
@@ -77,5 +91,53 @@ class Limpieza extends Servicio
     public function getEspecificaciones()
     {
         return $this->especificaciones;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return Limpieza
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idServicio
+     *
+     * @param integer $idServicio
+     *
+     * @return Limpieza
+     */
+    public function setIdServicio($idServicio)
+    {
+        $this->id_servicio = $idServicio;
+
+        return $this;
+    }
+
+    /**
+     * Get idServicio
+     *
+     * @return integer
+     */
+    public function getIdServicio()
+    {
+        return $this->id_servicio;
     }
 }

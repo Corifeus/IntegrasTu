@@ -10,8 +10,23 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="catering")
  * @ORM\Entity(repositoryClass="PIGBundle\Repository\CateringRepository")
  */
-class Catering extends Servicio
+class Catering
 {
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="IDENTITY")
+   */
+  private $id;
+
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id_servicio", type="integer")
+   */
+  private $id_servicio;
 
     /**
      * @var string
@@ -75,7 +90,7 @@ class Catering extends Servicio
      *
      * @return integer
      */
-  
+
     public function setHoraLlegada($horaLlegada)
     {
         $this->horaLlegada = $horaLlegada;
@@ -259,5 +274,53 @@ class Catering extends Servicio
     public function getEspecificaciones()
     {
         return $this->especificaciones;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return Catering
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idServicio
+     *
+     * @param integer $idServicio
+     *
+     * @return Catering
+     */
+    public function setIdServicio($idServicio)
+    {
+        $this->id_servicio = $idServicio;
+
+        return $this;
+    }
+
+    /**
+     * Get idServicio
+     *
+     * @return integer
+     */
+    public function getIdServicio()
+    {
+        return $this->id_servicio;
     }
 }
