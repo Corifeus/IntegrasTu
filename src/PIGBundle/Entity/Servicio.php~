@@ -20,13 +20,11 @@ class Servicio
     private $cliente;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Trabajadora", inversedBy="servicio", cascade={"persist"})
-     * @ORM\JoinTable(name="servicio_trabajadora",
-     * joinColumns={@ORM\JoinColumn(name="trabajadora_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="trabajadora_id", referencedColumnName="id")}
-     * )
+     * @var \Doctrine\Common\Collections\Collection|Servicio[]
+     *
+     * @ORM\ManyToMany(targetEntity="Trabajadora", mappedBy="Servicio")
      */
-    private $trabajadora;
+    protected $Trabajadora;
 
     /**
      * @var int
@@ -248,6 +246,7 @@ class Servicio
     }
 
     /**
+<<<<<<< HEAD
      * Set tipo
      *
      * @param string $tipo
@@ -285,6 +284,21 @@ class Servicio
         return $this;
     }
 
+=======
+     * Set cliente
+     *
+     * @param \PIGBundle\Entity\Cliente $cliente
+     *
+     * @return Servicio
+     */
+    public function setCliente(\PIGBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+
+        return $this;
+    }
+
+>>>>>>> origin/HorariosTrabajadora
     /**
      * Get cliente
      *

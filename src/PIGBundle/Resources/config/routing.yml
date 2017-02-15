@@ -34,6 +34,10 @@ trabajadoras_todas:
     path:     /trabajadoras/show/{id}
     defaults: { _controller: PIGBundle:Trabajadora:trabajadoraShow }
 
+trabajadoras_horario:
+    path:     /trabajadoras/horario/{id}
+    defaults: { _controller: PIGBundle:Trabajadora:trabajadoraHorario }
+
 trabajadoras_exito:
     path:     /trabajadoras/msgExito
     defaults: { _controller: PIGBundle:Trabajadora:msgExito }

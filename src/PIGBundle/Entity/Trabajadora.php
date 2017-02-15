@@ -13,14 +13,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Trabajadora
 {
-    /**
-     * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="trabajadora", cascade={"persist"})
-     * @ORM\JoinTable(name="trabajadora_servicio",
-     * joinColumns={@ORM\JoinColumn(name="servicio_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="servicio_id", referencedColumnName="id")}
-     * )
-     */
-    private $servicio;
+  /**
+   * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="trabajadora")
+   * @ORM\JoinTable(name="ServiciosDeUnaTrabajadora")
+   */
+  private $servicio;
 
     /**
      * @var int
