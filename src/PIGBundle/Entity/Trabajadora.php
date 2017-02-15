@@ -93,7 +93,7 @@ class Trabajadora
     /**
      * @var string
      *
-     * @ORM\Column(name="DNI", type="string", length=9, unique=true)
+     * @ORM\Column(name="DNI", type="string", length=10, unique=true)
      * @Assert\NotBlank()
      * @Assert\Length(
      *      min = 10,
