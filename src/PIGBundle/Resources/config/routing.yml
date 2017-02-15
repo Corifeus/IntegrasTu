@@ -1,6 +1,6 @@
 pig_homepage:
     path:     /
-    defaults: { _controller: PIGBundle:Default:index }
+    defaults: { _controller: PIGBundle:User:login }
 
 clientes_index:
     path:     /clientes
@@ -38,6 +38,7 @@ trabajadoras_exito:
     path:     /trabajadoras/msgExito
     defaults: { _controller: PIGBundle:Trabajadora:msgExito }
 
+
 Servicios_index:
     path:     /servicios
     defaults: { _controller: PIGBundle:Servicio:index }
@@ -73,3 +74,15 @@ Caterings_nuevo:
 Limpiezas_nuevo:
     path:     /servicios/newLimpieza
     defaults: { _controller: PIGBundle:Limpieza:nuevoLimpieza }
+
+usuario_nuevo:
+    path:     /register
+    defaults: { _controller: PIGBundle:User:register }
+
+usuarios_homepage:
+    path:     /usuarios
+    defaults: { _controller: PIGBundle:User:index }
+
+login:
+    path:     /usuarios/login
+    defaults: { _controller: PIGBundle:User:login}
