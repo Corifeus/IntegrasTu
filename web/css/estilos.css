@@ -143,3 +143,10 @@ button:focus{
   border: solid rgb(210, 41, 2) 2px;
 
 }
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    color: #f7f7f7;
+    text-decoration: none;
+    background-color: rgb(210, 41, 2);
+    outline: 0;
+}
