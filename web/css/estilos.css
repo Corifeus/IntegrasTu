@@ -134,6 +134,7 @@ button:focus{
 
 .loginRegister{
 
+  margin-top: 50px;
   margin-top: 160px;
   background-color: red;
   width: 100%;
@@ -149,4 +150,21 @@ button:focus{
     text-decoration: none;
     background-color: rgb(210, 41, 2);
     outline: 0;
+}
+
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: rgb(210, 41, 2);
+    white-space: nowrap;
+}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #f7f7f7;
+    text-decoration: none;
+    background-color: rgb(210, 41, 2);
 }

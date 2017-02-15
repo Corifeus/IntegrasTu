@@ -85,7 +85,7 @@ usuario_nuevo:
 
 usuarios_homepage:
     path:     /usuarios
-    defaults: { _controller: PIGBundle:User:index }
+    defaults: { _controller: PIGBundle:Default:index }
 
 login:
     path:     /usuarios/login
