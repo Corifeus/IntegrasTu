@@ -4,7 +4,7 @@
 {% block menubar %}
     {% for servicio in servicios %}
 
-        <li><a href="/servicios/show/{{servicio.id}}">{{ servicio.id }}</a></li>
+        <li><a href="/servicios/show/{{servicio.id}}"> Tipo: {{ servicio.Tipo }} Fecha: {{ servicio.Fecha.date|date("d/m/y  g:i a") }}</a></li>
 
     {% endfor %}
 

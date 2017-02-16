@@ -60,7 +60,7 @@ class Servicio
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Fecha", type="date")
+     * @ORM\Column(name="Fecha", type="datetime")
      */
     private $fecha;
 
@@ -247,7 +247,6 @@ class Servicio
     }
 
     /**
-<<<<<<< HEAD
      * Set tipo
      *
      * @param string $tipo
