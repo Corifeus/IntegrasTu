@@ -31,6 +31,7 @@ class OtroController extends Controller
 
     public function nuevoOtroAction(Request $request)
     {
+
     	$otro=new Otro();
     	$form= $this->createForm(OtroType::class);
     	$form->handleRequest($request);
@@ -40,20 +41,39 @@ class OtroController extends Controller
       		$em->persist($otro);
       		$em->flush();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5c93b58335aa500e15dc2f4f5b830e37e2c085df
         return $this->redirectToRoute('otros_exito');
 
+      $otro=new Otro();
+      $form= $this->createForm(OtroType::class);
+
+
+      $form->handleRequest($request);
+    	if ($form->isSubmitted() && $form->isValid()) {
+          $otro = $form->getData();
+          $em = $this->getDoctrine()->getManager();
+
+          $em->persist($otro);
+          $em->flush();
+      		return $this->render('PIGBundle:Default:index.html.twig');
     	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c93b58335aa500e15dc2f4f5b830e37e2c085df
     	return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
     }
-
-
+  }
 
     public function msgExitoAction()
     {
         return $this->render('PIGBundle:Otros:msgExito.html.twig');
     }
+
 
 
 }

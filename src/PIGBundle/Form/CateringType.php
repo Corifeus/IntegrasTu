@@ -10,6 +10,9 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use PIGBundle\Entity\Servicio;
 
 class CateringType extends AbstractType
 {
@@ -18,7 +21,10 @@ class CateringType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('horaLlegada', TextType::class)
+      $url=$_SERVER['REQUEST_URI'];
+      $id=explode("/",$url);
+      $builder->add('id_servicio',HiddenType::class, array('data' => $id[3]))
+        ->add('horaLlegada', TextType::class)
         ->add('horaInicio',TextType::class)
         ->add('horaFin',TextType::class)
         ->add('tipo' ,TextType::class)

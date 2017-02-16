@@ -29,19 +29,17 @@ class CateringController extends Controller
 
     public function nuevoCateringAction(Request $request)
     {
-    	$catering=new Catering();
-    	$form= $this->createForm(CateringType::class);
+      $catering=new Catering();
+      $form= $this->createForm(CateringType::class);
 
-    	$form->handleRequest($request);
+      $form->handleRequest($request);
     	if ($form->isSubmitted() && $form->isValid()) {
+          $catering = $form->getData();
+          $em = $this->getDoctrine()->getManager();
 
-    		$catering = $form->getData();
-
-    		$em = $this->getDoctrine()->getManager();
-    		$em->persist($catering);
-    		$em->flush();
-
-    		return $this->redirectToRoute('caterings_exito');
+          $em->persist($catering);
+          $em->flush();
+      		return $this->render('PIGBundle:Default:index.html.twig');
     	}
 
     	return $this->render('PIGBundle:Caterings:nuevoCaterings.html.twig',array("formCaterings"=>$form->createView() ));

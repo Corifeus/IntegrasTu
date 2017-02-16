@@ -11,6 +11,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use PIGBundle\Entity\Trabajadora;
+use PIGBundle\Entity\Cliente;
 
 class ServicioType extends AbstractType
 {
@@ -32,6 +35,9 @@ class ServicioType extends AbstractType
                     'Mantenimiento' => 'Mantenimiento',
                     'Otro' => 'Otro',
                 ), ))
+        ->add('cliente', EntityType::class, array(
+              'class' => 'PIGBundle:Cliente',
+              'choice_label' => 'id',))
         ->add('Salvar',SubmitType::class)
         ->add('Borrar',ResetType::class)         ;
     }
