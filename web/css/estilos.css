@@ -63,7 +63,7 @@ button:focus{
 }
 
 
-#cliente input, #pigbundle_servicio input, #trabajadora input, #pigbundle_limpieza input, #pigbundle_otro input, .loginRegister input{
+#cliente input, #pigbundle_servicio input, #trabajadora input, #pigbundle_limpieza input, #pigbundle_otro input, #pigbundle_catering input, #pigbundle_mantenimiento input, .loginRegister input{
 
   display: block;
     width: 100%;
@@ -84,7 +84,7 @@ button:focus{
 }
 
 
-#cliente label, #pigbundle_servicio label, #trabajadora label, #pigbundle_limpieza label, #pigbundle_otro label, .loginRegister label{
+#cliente label, #pigbundle_servicio label, #trabajadora label, #pigbundle_limpieza label, #pigbundle_otro label, #pigbundle_catering label, #pigbundle_mantenimiento label, .loginRegister label{
 
   display: inline-block;
     max-width: 100%;
@@ -94,7 +94,7 @@ button:focus{
 }
 
 
-#cliente button, #pigbundle_servicio button, #trabajadora button, #pigbundle_limpieza button, #pigbundle_otro button, .loginRegister button{
+#cliente button, #pigbundle_servicio button, #trabajadora button, #pigbundle_limpieza button, #pigbundle_otro button, #pigbundle_catering button, #pigbundle_mantenimiento button, .loginRegister button{
 
  color: rgb(210, 41, 2);
  background-color: #f7f7f7;
@@ -126,7 +126,7 @@ button:focus{
 }
 
 
-#cliente button:hover, #pigbundle_servicio button:hover, #trabajadora button:hover, #pigbundle_limpieza button:hover, #pigbundle_otro button:hover, .loginRegister button:hover{
+#cliente button:hover, #pigbundle_servicio button:hover, #trabajadora button:hover, #pigbundle_limpieza button:hover, #pigbundle_otro button:hover, #pigbundle_catering button:hover, #pigbundle_mantenimiento button:hover, .loginRegister button:hover{
 
   background-color: rgb(210, 41, 2);
   color: #f7f7f7;
