@@ -24,9 +24,32 @@ document.getElementById("trabajadoras").onmouseover=function(){
 document.getElementById("trabajadoras").onmouseout=function(){
   document.getElementById("mensaje").innerHTML="Mensajes de ayuda";
 }
+
 document.getElementById("side-menu").onmouseover=function(){
-  document.getElementById("mensaje").innerHTML="Muestra los datos de ... seleccionado";
+  var url=window.location.href;
+  var ruta=url.split("/");
+  console.log(ruta);
+  switch(ruta[3]){
+    case "clientes":
+      document.getElementById("mensaje").innerHTML="Muestra los datos del cliente seleccionado";
+      break;
+    case "servicios":
+      document.getElementById("mensaje").innerHTML="Muestra los datos del servicio seleccionado";
+      break;
+    case "trabajadoras":
+      document.getElementById("mensaje").innerHTML="Muestra los datos de la empleada seleccionada";
+      break;
+    default:
+      break;
+  }
+ 
 }
 document.getElementById("side-menu").onmouseout=function(){
+  document.getElementById("mensaje").innerHTML="Mensajes de ayuda";
+}
+document.getElementById("user").onmouseover=function(){
+  document.getElementById("mensaje").innerHTML="Permite registrar nuevos usuarios y cerrar la sesión actual";
+}
+document.getElementById("user").onmouseout=function(){
   document.getElementById("mensaje").innerHTML="Mensajes de ayuda";
 }
