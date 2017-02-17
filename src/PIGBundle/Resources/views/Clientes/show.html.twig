@@ -73,7 +73,7 @@
     {% if servicio.cliente.id == id %}
       <tr>
         <td>Servicio {{counter}}</td>
-        <td>{{ servicio.fecha.date }}</td>
+        <td>{{ servicio.fecha|date("d/m/y  g:i a") }}</td>
         {% set counter = counter + 1 %}
       </tr>
     {% endif %}

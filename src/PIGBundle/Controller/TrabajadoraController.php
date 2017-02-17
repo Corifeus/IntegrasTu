@@ -16,7 +16,22 @@ class TrabajadoraController extends Controller
         return $this->render('PIGBundle:Trabajadoras:index.html.twig',array("trabajadoras"=>$trabajadoras));
     }
 
+    public function borrarAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("DELETE FROM trabajadora
+      WHERE id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
 
+      $statement = $connection->prepare("DELETE FROM serviciosdeunatrabajadora
+      WHERE trabajadora_id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+
+      return $this->redirectToRoute('trabajadoras_index');
+    }
 
     public function TrabajadoraAllAction()
     {
