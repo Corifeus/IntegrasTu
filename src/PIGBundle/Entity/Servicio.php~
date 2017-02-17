@@ -246,7 +246,6 @@ class Servicio
     }
 
     /**
-<<<<<<< HEAD
      * Set tipo
      *
      * @param string $tipo
@@ -284,7 +283,6 @@ class Servicio
         return $this;
     }
 
-=======
      * Set cliente
      *
      * @param \PIGBundle\Entity\Cliente $cliente
@@ -298,7 +296,6 @@ class Servicio
         return $this;
     }
 
->>>>>>> origin/HorariosTrabajadora
     /**
      * Get cliente
      *
