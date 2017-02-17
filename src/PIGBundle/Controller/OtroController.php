@@ -39,8 +39,11 @@ class OtroController extends Controller
       		$em = $this->getDoctrine()->getManager();
       		$em->persist($otro);
       		$em->flush();
-          	return $this->redirectToRoute('otros_exito');
-        }
+
+
+        return $this->redirectToRoute('otros_exito');
+
+    	}
 
 
     	return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));

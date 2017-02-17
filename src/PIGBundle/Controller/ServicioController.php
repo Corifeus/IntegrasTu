@@ -58,31 +58,41 @@ class ServicioController extends Controller
 
 
               $tipo=$servicio->getTipo();
-              switch($tipo){
+              /*switch($tipo){
                 case "Limpieza":
-                  return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
-                  break;
+
+                  return $this->redirectToRoute('Limpiezas_nuevo');
+                  //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form2->createView() ));
+
+                break;
 
                 case "Catering":
-                  return $this->render('PIGBundle:Caterings:nuevoCaterings.html.twig',array("formCaterings"=>$form->createView() ));
+                  $catering=new Catering();
+                  $form2= $this->createForm(CateringType::class);
+                  return $this->render('PIGBundle:Caterings:nuevoCaterings.html.twig',array("formCaterings"=>$form2->createView() ));
                   break;
 
                 case "Mantenimiento":
-                  return $this->render('PIGBundle:Mantenimientos:nuevoMantenimientos.html.twig',array("formmantenimientos"=>$form->createView() ));
+                  $mantenimiento=new Mantenimiento();
+                  $form2= $this->createForm(MantenimientoType::class);
+                  return $this->render('PIGBundle:Mantenimientos:nuevoMantenimientos.html.twig',array("formmantenimientos"=>$form2->createView() ));
                   break;
 
                 case "Otro":
-                  return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
+                  $otro=new Otro();
+                  $form2= $this->createForm(OtroType::class);
+                  return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form2->createView() ));
                   break;
 
                 default:
                   return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
                   break;
-        }
+        }*/
+        //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
     		return $this->redirectToRoute('Servicios_exito');
     	}
-
-    	return $this->render('PIGBundle:Servicios:nuevoservicio.html.twig',array("formServicios"=>$form->createView() ));
+      //return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
+    	return $this->render('PIGBundle:Servicios:nuevoServicio.html.twig',array("formServicios"=>$form->createView() ));
 
     }
 
@@ -90,6 +100,7 @@ class ServicioController extends Controller
 
     public function msgExitoAction()
     {
+        //return $this->render('PIGBundle:Limpiezas:nuevoLimpiezas.html.twig',array("formLimpiezas"=>$form->createView() ));
         return $this->render('PIGBundle:Servicios:msgExito.html.twig');
     }
 
