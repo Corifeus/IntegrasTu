@@ -25,6 +25,59 @@ class ServicioController extends Controller
     }
 
 
+    public function borrarAction($id)
+    {
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Servicio');
+      $servicio = $repository->find($id);
+
+      switch ($servicio->getTipo()) {
+        case 'Limpieza':
+          $em = $this->getDoctrine()->getManager();
+          $connection = $em->getConnection();
+          $statement = $connection->prepare("DELETE FROM limpieza
+          WHERE id_Servicio=" . $id . ";");
+          $statement->bindValue('id', 123);
+          $statement->execute();
+        break;
+
+        case 'Catering':
+          $em = $this->getDoctrine()->getManager();
+          $connection = $em->getConnection();
+          $statement = $connection->prepare("DELETE FROM catering
+          WHERE id_Servicio=" . $id . ";");
+          $statement->bindValue('id', 123);
+          $statement->execute();
+        break;
+
+        case 'Mantenimiento':
+          $em = $this->getDoctrine()->getManager();
+          $connection = $em->getConnection();
+          $statement = $connection->prepare("DELETE FROM mantenimiento
+          WHERE id_Servicio=" . $id . ";");
+          $statement->bindValue('id', 123);
+          $statement->execute();
+        break;
+
+        case 'Otro':
+          $em = $this->getDoctrine()->getManager();
+          $connection = $em->getConnection();
+          $statement = $connection->prepare("DELETE FROM otro
+          WHERE id_Servicio=" . $id . ";");
+          $statement->bindValue('id', 123);
+          $statement->execute();
+        break;
+      }
+
+
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("DELETE FROM servicio
+      WHERE id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+
+      return $this->redirectToRoute('Servicios_index');
+    }
 
     public function servicioAllAction()
     {

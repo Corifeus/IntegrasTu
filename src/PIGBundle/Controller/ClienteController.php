@@ -12,6 +12,19 @@ class ClienteController extends Controller
         $clientes = $repository->findAll();
         return $this->render('PIGBundle:Clientes:index.html.twig',array("clientes"=>$clientes));
     }
+
+    public function borrarAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("DELETE FROM cliente
+      WHERE id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+
+      return $this->redirectToRoute('clientes_index');
+    }
+        
     public function ClienteAllAction()
     {
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Cliente');
