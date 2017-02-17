@@ -402,6 +402,7 @@ class Cliente
     {
         return $this->razonSocial;
     }
+
     /**
      * Constructor
      */

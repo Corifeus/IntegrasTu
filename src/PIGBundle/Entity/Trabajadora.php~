@@ -93,13 +93,13 @@ class Trabajadora
     /**
      * @var string
      *
-     * @ORM\Column(name="DNI", type="string", length=10, unique=true)
+     * @ORM\Column(name="DNI", type="string", length=9, unique=true)
      * @Assert\NotBlank()
      * @Assert\Length(
-     *      min = 9,
-     *      max = 9,
-     *      minMessage = "Escribe un dni en formato xxxxxxxxA",
-     *      maxMessage = "Escribe un dni en formato xxxxxxxxA"
+     *      min = 10,
+     *      max = 10,
+     *      minMessage = "Escribe un dni en formato xxxxxxxx-A",
+     *      maxMessage = "Escribe un dni en formato xxxxxxxx-A"
      * )
      */
     private $dNI;
@@ -402,6 +402,8 @@ class Trabajadora
     {
         return $this->estado;
     }
+
+
     /**
      * Constructor
      */

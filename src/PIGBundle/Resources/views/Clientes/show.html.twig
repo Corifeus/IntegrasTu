@@ -1,9 +1,24 @@
 {% extends 'PIGBundle:Clientes:index.html.twig' %}
 {% block title %}PIG{% endblock %}
 
+
+{% block menubar %}
+
+    {% for cliente in datos[0] %}
+        <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
+
+    {% endfor %}
+
+      <a href="/clientes/new"><button class="btn btn-default">Insertar Cliente</button></a>
+{% endblock %}
+
 {% block body %}
+
+<div class="col-lg-8">
+
+
 <table class="table table-striped">
-  {% for cliente in clientes %}
+  {% for cliente in datos[0] %}
   {% if cliente.id == id %}
   <tr>
     <td>Nombre</td>
@@ -58,9 +73,33 @@
     <td>Razón social</td>
     <td>{{ cliente.razonSocial }}</td>
   </tr>
+</table>
+</div>
 
+<div class="col-lg-4">
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+  Servicios
+</div>
+<div class="panel-body">
+<div class="list-group">
+  {% for servicio in datos[1] %}
+    {% if servicio.cliente.id == id %}
+
+
+        <a href="#" class="list-group-item"> {{ servicio.fecha|date("d/m/y  g:i a") }} </a>
+
+
+    {% endif %}
+  {% endfor %}
+  </div>
+  </div>
   {% endif %}
   {% endfor %}
-</table>
 
+
+</div>
+</div>
 {% endblock %}

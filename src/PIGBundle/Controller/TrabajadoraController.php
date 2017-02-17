@@ -14,10 +14,24 @@ class TrabajadoraController extends Controller
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
       $trabajadoras = $repository->findAll();
         return $this->render('PIGBundle:Trabajadoras:index.html.twig',array("trabajadoras"=>$trabajadoras));
-
     }
 
+    public function borrarAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("DELETE FROM trabajadora
+      WHERE id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
 
+      $statement = $connection->prepare("DELETE FROM serviciosdeunatrabajadora
+      WHERE trabajadora_id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+
+      return $this->redirectToRoute('trabajadoras_index');
+    }
 
     public function TrabajadoraAllAction()
     {
@@ -26,17 +40,34 @@ class TrabajadoraController extends Controller
         return $this->render('PIGBundle:Trabajadoras:all.html.twig',array("trabajadoras"=>$trabajadoras));
     }
 
+
     public function TrabajadoraShowAction($id)
     {
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+
+      $trabajadora = $repository->findOneById($id);
       $trabajadoras = $repository->findAll();
-        return $this->render('PIGBundle:Trabajadoras:show.html.twig',array("trabajadoras"=>$trabajadoras, 'id'=>$id));
+
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("select s.Fecha
+      from trabajadora t,servicio s,serviciosdeunatrabajadora ser
+      where t.id=ser.trabajadora_id and s.id=ser.servicio_id and t.id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+      $results = $statement->fetchAll();
+
+
+      $datos=array($trabajadora,$results,$trabajadoras);
+
+        return $this->render('PIGBundle:Trabajadoras:show.html.twig',array("datos"=>$datos, 'id'=>$id));
     }
-
-
 
     public function nuevaTrabajadoraAction(Request $request)
     {
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+      $trabajadoras = $repository->findAll();
+
     	$trabajadora=new Trabajadora();
     	$form= $this->createForm(TrabajadoraType::class);
 
@@ -52,7 +83,7 @@ class TrabajadoraController extends Controller
     		return $this->redirectToRoute('trabajadoras_exito');
     	}
 
-    	return $this->render('PIGBundle:Trabajadoras:nuevaTrabajadora.html.twig',array("formTrabajadoras"=>$form->createView() ));
+    	return $this->render('PIGBundle:Trabajadoras:nuevaTrabajadora.html.twig',array("trabajadoras"=>$trabajadoras,"formTrabajadoras"=>$form->createView() ));
     }
 
 
