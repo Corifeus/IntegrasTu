@@ -46,7 +46,9 @@ class OtroController extends Controller
 
 
     	return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
-  }
+    }
+
+
 
     public function msgExitoAction()
     {
