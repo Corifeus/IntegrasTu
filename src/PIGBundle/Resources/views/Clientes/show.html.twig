@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'PIGBundle:Clientes:index.html.twig' %}
 {% block title %}PIG{% endblock %}
 
 {% block menubar %}
@@ -7,6 +7,8 @@
         <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
 
     {% endfor %}
+
+      <a href="/clientes/new"><button class="btn btn-default">Insertar Cliente</button></a>
 {% endblock %}
 
 {% block body %}

@@ -46,7 +46,6 @@ class TrabajadoraController extends Controller
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
 
       $trabajadora = $repository->findOneById($id);
-
       $trabajadoras = $repository->findAll();
 
       $em = $this->getDoctrine()->getManager();
@@ -66,6 +65,9 @@ class TrabajadoraController extends Controller
 
     public function nuevaTrabajadoraAction(Request $request)
     {
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+      $trabajadoras = $repository->findAll();
+
     	$trabajadora=new Trabajadora();
     	$form= $this->createForm(TrabajadoraType::class);
 
@@ -81,7 +83,7 @@ class TrabajadoraController extends Controller
     		return $this->redirectToRoute('trabajadoras_exito');
     	}
 
-    	return $this->render('PIGBundle:Trabajadoras:nuevaTrabajadora.html.twig',array("formTrabajadoras"=>$form->createView() ));
+    	return $this->render('PIGBundle:Trabajadoras:nuevaTrabajadora.html.twig',array("trabajadoras"=>$trabajadoras,"formTrabajadoras"=>$form->createView() ));
     }
 
 
