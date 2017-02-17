@@ -174,3 +174,24 @@ button:focus{
     text-decoration: none;
     background-color: rgb(210, 41, 2);
 }
+
+#help{
+  position: absolute;
+  background-color:#6aa84f;
+  width:100%;
+  color: #f7f7f7;
+  padding: 10px;
+  bottom: 0;
+}
+
+#help > div{
+  position: relative;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+
+#help > div > button{
+  color:#6aa84f;
+  position:absolute;
+  right: 10px;
+}
