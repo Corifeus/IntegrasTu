@@ -31,6 +31,7 @@ class OtroController extends Controller
 
     public function nuevoOtroAction(Request $request)
     {
+
       $otro=new Otro();
       $form= $this->createForm(OtroType::class);
 
@@ -43,7 +44,6 @@ class OtroController extends Controller
           $em->flush();
       		return $this->render('PIGBundle:Default:index.html.twig');
     	}
-
 
     	return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
     }
