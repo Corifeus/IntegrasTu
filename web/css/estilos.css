@@ -194,4 +194,15 @@ button:focus{
   color:#6aa84f;
   position:absolute;
   right: 10px;
+  border: 2px solid #6aa84f;
 }
+
+button#mostrar{
+  display:none;
+  position: absolute;
+  bottom: 45px;
+  right: 20px;
+  color:#6aa84f;
+  border: 2px solid #6aa84f;
+}
+    
