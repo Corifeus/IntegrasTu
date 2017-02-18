@@ -215,3 +215,39 @@ button#mostrar{
 
   margin-top: 20px;
 }
+
+button.borrar{
+  color: rgb(210, 41, 2);
+  background-color: #f7f7f7;
+  border: solid rgb(210, 41, 2) 1px;
+
+
+
+
+  display: inline-block;;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+
+button.borrar:hover{
+  background-color: rgb(210, 41, 2);
+  color: #f7f7f7;
+}
