@@ -1,15 +1,15 @@
-{% extends '::base.html.twig' %}
+{% extends 'PIGBundle:Trabajadoras:index.html.twig' %}
 {% block title %}PIG{% endblock %}
+
 
 {% block menubar %}
 
   {% for trabajadora in datos[2] %}
-        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }}</a></li>
+        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
 
         {% endfor %}
         <a href="/trabajadoras/new"><button class="btn btn-default">Insertar Empleada</button></a>
 {% endblock %}
-
 
 {% block body %}
 <table class="table table-striped">

@@ -1,13 +1,10 @@
-{% extends 'PIGBundle:Clientes:index.html.twig' %}
+{% extends '::base.html.twig' %}
 {% block title %}PIG{% endblock %}
-
-
-
 {% block body %}
 <h1>Nuevo cliente</h1>
 
 		<div id="contenedorForm">
-			{{form(formClientes)}}
+			</form> {{form(formClientes)}}
 		</div>
 
 {% endblock %}

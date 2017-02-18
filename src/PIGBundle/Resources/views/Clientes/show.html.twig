@@ -1,6 +1,7 @@
 {% extends 'PIGBundle:Clientes:index.html.twig' %}
 {% block title %}PIG{% endblock %}
 
+
 {% block menubar %}
 
     {% for cliente in datos[0] %}
@@ -13,7 +14,7 @@
 
 {% block body %}
 
-<div class="col-lg-8">
+<div id="datos" class="col-lg-8">
 
 
 <table class="table table-striped">
@@ -75,7 +76,7 @@
 </table>
 </div>
 
-<div class="col-lg-4">
+<div id="extra" class="col-lg-4">
 
 
 <div class="panel panel-default">
