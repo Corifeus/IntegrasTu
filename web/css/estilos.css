@@ -102,6 +102,7 @@ button:focus{
 
 
 
+
  display: inline-block;;
  padding: 6px 12px;
  margin-bottom: 0;
@@ -141,7 +142,6 @@ button:focus{
 
 .loginRegister{
 
-  background-color: red;
   width: 100%;
   padding: 40px;
   border-radius: 12px;
@@ -172,4 +172,45 @@ button:focus{
     color: #f7f7f7;
     text-decoration: none;
     background-color: rgb(210, 41, 2);
+}
+
+#help{
+  display:none;
+  position: absolute;
+  background-color:#6aa84f;
+  width:100%;
+  color: #f7f7f7;
+  padding: 10px;
+  bottom: 0;
+}
+
+#help > div{
+  position: relative;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+
+#help > div > button{
+  color:#6aa84f;
+  position:absolute;
+  right: 10px;
+  border: 2px solid #6aa84f;
+}
+
+button#mostrar{
+  position: absolute;
+  bottom: 45px;
+  right: 20px;
+  color:#6aa84f;
+  border: 2px solid #6aa84f;
+}
+
+.panel .panel-heading{
+  background-color: rgb(210, 41, 2);
+  color: #f7f7f7;
+}
+
+.panel{
+
+  margin-top: 20px;
 }

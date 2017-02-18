@@ -25,6 +25,59 @@ class ServicioController extends Controller
     }
 
 
+    public function borrarAction($id)
+    {
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Servicio');
+      $servicio = $repository->find($id);
+
+      switch ($servicio->getTipo()) {
+        case 'Limpieza':
+          $em = $this->getDoctrine()->getManager();
+          $connection = $em->getConnection();
+          $statement = $connection->prepare("DELETE FROM limpieza
+          WHERE id_Servicio=" . $id . ";");
+          $statement->bindValue('id', 123);
+          $statement->execute();
+        break;
+
+        case 'Catering':
+          $em = $this->getDoctrine()->getManager();
+          $connection = $em->getConnection();
+          $statement = $connection->prepare("DELETE FROM catering
+          WHERE id_Servicio=" . $id . ";");
+          $statement->bindValue('id', 123);
+          $statement->execute();
+        break;
+
+        case 'Mantenimiento':
+          $em = $this->getDoctrine()->getManager();
+          $connection = $em->getConnection();
+          $statement = $connection->prepare("DELETE FROM mantenimiento
+          WHERE id_Servicio=" . $id . ";");
+          $statement->bindValue('id', 123);
+          $statement->execute();
+        break;
+
+        case 'Otro':
+          $em = $this->getDoctrine()->getManager();
+          $connection = $em->getConnection();
+          $statement = $connection->prepare("DELETE FROM otro
+          WHERE id_Servicio=" . $id . ";");
+          $statement->bindValue('id', 123);
+          $statement->execute();
+        break;
+      }
+
+
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("DELETE FROM servicio
+      WHERE id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+
+      return $this->redirectToRoute('Servicios_index');
+    }
 
     public function servicioAllAction()
     {
@@ -35,9 +88,51 @@ class ServicioController extends Controller
 
     public function servicioShowAction($id)
     {
+
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Servicio');
-      $servicios = $repository->findAll();
-        return $this->render('PIGBundle:Servicios:show.html.twig',array("servicios"=>$servicios, 'id'=>$id));
+      $menu = $repository->findAll();
+
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Servicio');
+      $servicios = $repository->findOneById($id);
+
+      switch ($servicios->getTipo()) {
+        case 'Limpieza':
+          $repository = $this->getDoctrine()->getRepository('PIGBundle:Limpieza');
+          $especificaciones = $repository->findAll();
+          $tipo = 'Limpieza';
+        break;
+
+        case 'Catering':
+          $repository= $this->getDoctrine()->getRepository('PIGBundle:Catering');
+          $especificaciones = $repository->findAll();
+          $tipo = 'Catering';
+        break;
+
+        case 'Mantenimiento':
+          $repository= $this->getDoctrine()->getRepository('PIGBundle:Mantenimiento');
+          $especificaciones = $repository->findAll();
+          $tipo = 'Mantenimiento';
+        break;
+
+        case 'Otro':
+          $repository= $this->getDoctrine()->getRepository('PIGBundle:Otro');
+          $especificaciones = $repository->findAll();
+          $tipo = 'Otro';
+        break;
+      }
+
+
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("select distinct t.Nombre,t.Apellidos
+      from serviciosdeunatrabajadora ser,trabajadora t,servicio s
+      where ser.trabajadora_id = t.id and ser.servicio_id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+      $trabajadoras = $statement->fetchAll();
+
+        $datos=array($menu,$especificaciones,$tipo,$trabajadoras);
+        return $this->render('PIGBundle:Servicios:show.html.twig',array("datos"=>$datos, 'id'=>$id));
     }
 
 
@@ -77,6 +172,7 @@ class ServicioController extends Controller
                 case "Otro":
                 $id = $servicio->getId();
                 return $this->redirect('/servicios/newOtro/'.$id);
+
                   break;
 
                 default:

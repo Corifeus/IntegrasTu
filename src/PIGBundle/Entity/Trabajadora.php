@@ -96,10 +96,10 @@ class Trabajadora
      * @ORM\Column(name="DNI", type="string", length=10, unique=true)
      * @Assert\NotBlank()
      * @Assert\Length(
-     *      min = 10,
-     *      max = 10,
-     *      minMessage = "Escribe un dni en formato xxxxxxxx-A",
-     *      maxMessage = "Escribe un dni en formato xxxxxxxx-A"
+     *      min = 9,
+     *      max = 9,
+     *      minMessage = "Escribe un dni en formato xxxxxxxxA",
+     *      maxMessage = "Escribe un dni en formato xxxxxxxxA"
      * )
      */
     private $dNI;

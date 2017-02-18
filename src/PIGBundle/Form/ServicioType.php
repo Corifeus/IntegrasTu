@@ -8,8 +8,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use PIGBundle\Entity\Trabajadora;
@@ -25,8 +26,8 @@ class ServicioType extends AbstractType
         $builder->add('personaContacto', TextType::class)
         ->add('telefonoContacto' ,TextType::class)
         ->add('direccion' ,TextType::class)
-        ->add('fecha' ,DateType::class)
-        ->add('observaciones' ,TextType::class)
+        ->add('fecha' ,DateTimeType::class)
+        ->add('observaciones' ,TextareaType::class)
         ->add('estado' ,TextType::class)
         ->add('tipo', ChoiceType::class, array(
                 'choices'  => array(
