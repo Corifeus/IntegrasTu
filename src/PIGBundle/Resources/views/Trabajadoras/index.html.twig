@@ -4,7 +4,7 @@
 {% block menubar %}
     {% for trabajadora in trabajadoras %}
 
-        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }}</a></li>
+        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
 
     {% endfor %}
 
