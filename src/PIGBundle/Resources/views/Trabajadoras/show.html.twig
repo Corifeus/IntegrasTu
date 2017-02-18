@@ -5,7 +5,7 @@
 {% block menubar %}
 
   {% for trabajadora in datos[2] %}
-        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
+        <li><a href="/trabajadoras/delete/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
 
         {% endfor %}
         <a href="/trabajadoras/new"><button class="btn btn-default">Insertar Empleada</button></a>
@@ -72,6 +72,7 @@
     <td>{{ datos[0].estado }}</td>
   </tr>
 </table>
+<a href="/trabajadoras/delete/{{trabajadora.id}}"><button class="borrar">Eliminar Empleada</button></a>
 </div>
 
 <div id="extra" class="col-lg-4">
