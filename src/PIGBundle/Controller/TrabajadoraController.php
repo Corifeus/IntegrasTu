@@ -80,7 +80,7 @@ class TrabajadoraController extends Controller
     		$em->persist($trabajadora);
     		$em->flush();
 
-    		return $this->redirectToRoute('trabajadoras_exito');
+    		return $this->redirectToRoute('trabajadoras_index');
     	}
 
     	return $this->render('PIGBundle:Trabajadoras:nuevaTrabajadora.html.twig',array("trabajadoras"=>$trabajadoras,"formTrabajadoras"=>$form->createView() ));

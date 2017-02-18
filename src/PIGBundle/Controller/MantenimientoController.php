@@ -39,7 +39,7 @@ class MantenimientoController extends Controller
 
           $em->persist($mantenimiento);
           $em->flush();
-      		return $this->render('PIGBundle:Default:index.html.twig');
+      		return $this->redirectToRoute('Servicios_index');
     	}
 
     	return $this->render('PIGBundle:Mantenimientos:nuevoMantenimientos.html.twig',array("formMantenimientos"=>$form->createView() ));
