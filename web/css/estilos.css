@@ -204,4 +204,14 @@ button#mostrar{
   color:#6aa84f;
   border: 2px solid #6aa84f;
 }
-    
+
+
+.panel .panel-heading{
+  background-color: rgb(210, 41, 2);
+  color: #f7f7f7;
+}
+
+.panel{
+
+  margin-top: 20px;
+}
