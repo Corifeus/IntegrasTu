@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Integras Tú - Gestor{% endblock %}</title>
         {% block stylesheets %}
         <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('vendor/metisMenu/metisMenu.min.css') }}" rel="stylesheet" />
@@ -14,7 +14,7 @@
 
 
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('iconoIntegras.ico') }}" />
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -22,7 +22,7 @@
     <body>
 
         <div id="wrapper">
-
+            {% block nav %}
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -66,7 +66,7 @@
                     <li id="servicios"><a href="/servicios">Servicios</a></li>
                     <li id="trabajadoras"><a href="/trabajadoras" class="active">Empleadas</a><span class="sr-only">current</span></li>
                 </ul>
-
+            {% endblock %}
 
                 <!-- /.navbar-top-links -->
 
