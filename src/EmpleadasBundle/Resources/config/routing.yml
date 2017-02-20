@@ -1,11 +1,15 @@
 empleadas_homepage:
-    path:     /
+    path:     /user
     defaults: { _controller: EmpleadasBundle:Default:index }
 
 empleadas_perfil:
-    path:     /perfil/{id}
+    path:     /user/perfil
     defaults: { _controller: EmpleadasBundle:Default:PerfilShow }
 
 empleadas_horario:
-    path:     /horario/{id}
+    path:     /user/horario
     defaults: { _controller: EmpleadasBundle:Default:horario }
+
+empleadas_login:
+    path:     /user/login
+    defaults: { _controller: EmpleadasBundle:Default:login}

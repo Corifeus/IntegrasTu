@@ -19,17 +19,31 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        usuarios:
-            pattern: ^/*
+
+
+        user:
+            pattern: ^/
             anonymous: ~
             provider: our_db_provider
             form_login:
-                login_path: /usuarios/login
-                check_path: /usuarios/login
-                default_target_path: /usuarios
+                login_path: /user/login
+                check_path: /user/login
+                default_target_path: /user
             logout:
-                path:   /usuarios/logout
-                target: /usuarios
+                path:   /user/logout
+                target: /user
+
+        admin:
+            pattern: ^/admin
+            anonymous: ~
+            provider: our_db_provider
+            form_login:
+                login_path: /admin/login
+                check_path: /admin/login
+                default_target_path: /admin
+            logout:
+                path:   /admin/logout
+                target: /admin
 
         main:
             anonymous: ~
@@ -41,5 +55,7 @@ security:
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
     access_control:
-            - { path: ^/usuarios/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/, roles: ROLE_USUARIO }
+            - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/user, roles: ROLE_USUARIO }
+            - { path: ^/admin, roles: ROLE_ADMIN }
