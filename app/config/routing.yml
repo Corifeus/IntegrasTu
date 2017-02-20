@@ -1,10 +1,17 @@
+empleadas:
+    resource: "@EmpleadasBundle/Resources/config/routing.yml"
+    prefix:   /
+
 PIG:
     resource: "@PIGBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin/
 
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
 logout:
-    path: /usuarios/logout
+    path: /admin/logout
+
+logout_user:
+    path: /user/logout

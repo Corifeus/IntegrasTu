@@ -1,6 +1,6 @@
 pig_homepage:
     path:     /
-    defaults: { _controller: PIGBundle:User:login }
+    defaults: { _controller: EmpleadasBundle:Default:index }
 
 clientes_index:
     path:     /clientes
@@ -62,7 +62,7 @@ Servicios_nuevo:
 Servicios_borrar:
     path:     /servicios/delete/{id}
     defaults: { _controller: PIGBundle:Servicio:borrar }
-    
+
 Servicios_todos:
     path:     /servicios/all
     defaults: { _controller: PIGBundle:Servicio:servicioAll }
@@ -95,10 +95,10 @@ usuario_nuevo:
     path:     /register
     defaults: { _controller: PIGBundle:User:register }
 
-usuarios_homepage:
-    path:     /usuarios
+admin_homepage:
+    path:     /
     defaults: { _controller: PIGBundle:Default:index }
 
 login:
-    path:     /usuarios/login
+    path:     /login
     defaults: { _controller: PIGBundle:User:login}
