@@ -59,10 +59,14 @@ Servicios_nuevo:
     path:     /servicios/new
     defaults: { _controller: PIGBundle:Servicio:nuevoServicio }
 
+Asignar_Empleada:
+    path:     /servicios/asignar/{trabajadora}/{servicio}
+    defaults: { _controller: PIGBundle:Servicio:asignar }
+
 Servicios_borrar:
     path:     /servicios/delete/{id}
     defaults: { _controller: PIGBundle:Servicio:borrar }
-    
+
 Servicios_todos:
     path:     /servicios/all
     defaults: { _controller: PIGBundle:Servicio:servicioAll }

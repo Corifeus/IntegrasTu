@@ -155,6 +155,16 @@ class ServicioController extends Controller
     }
 
 
+    public function asignarAction($trabajadora,$servicio)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("INSERT INTO serviciosdeunatrabajadora (trabajadora_id,servicio_id) VALUES (" . $trabajadora . "," . $servicio . ")");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+
+      return $this->redirect('/servicios/show/' . $servicio . '');
+    }
 
     public function nuevoServicioAction(Request $request)
     {
