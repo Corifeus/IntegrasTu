@@ -135,28 +135,22 @@ class ServicioController extends Controller
       //Id para comprobación
       $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
       $connection = $em->getConnection();
-      $statement = $connection->prepare("select id
+      $statement = $connection->prepare("select *
       from trabajadora;");
       $statement->bindValue('id', 123);
       $statement->execute();
-      $trabajadorasTodas = $statement->fetchAll();
+      $datosTrabajadoras = $statement->fetchAll();
 
-      //Id de las asignadas
       $em = $this->getDoctrine()->getManager();
       $connection = $em->getConnection();
-      $statement = $connection->prepare("select ser.trabajadora_id
-      from serviciosdeunatrabajadora ser
-      where ser.servicio_id=" . $id . ";");
+      $statement = $connection->prepare("select ser.trabajadora_id as 'id' from serviciosdeunatrabajadora ser where ser.servicio_id="
+       . $id . ";");
       $statement->bindValue('id', 123);
       $statement->execute();
       $asignadas = $statement->fetchAll();
 
 
-      //Todos los datos de las trabajadoras por si no encuentra resultados
-      $repository= $this->getDoctrine()->getRepository('PIGBundle:Servicio');
-      $trabajadorasDatos = $repository->findAll();
-
-      $datos=array($menu,$especificaciones,$tipo,$trabajadoras);
+      $datos=array($menu,$especificaciones,$tipo,$datosTrabajadoras,$asignadas);
       return $this->render('PIGBundle:Servicios:show.html.twig',array("datos"=>$datos, 'id'=>$id));
     }
 
@@ -197,7 +191,6 @@ class ServicioController extends Controller
                 case "Otro":
                 $id = $servicio->getId();
                 return $this->redirect('/servicios/newOtro/'.$id);
-
                   break;
 
                 default:

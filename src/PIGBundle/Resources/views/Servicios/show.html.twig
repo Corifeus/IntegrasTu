@@ -268,4 +268,26 @@
   {% endfor %}
 </table>
 
+
+<table id="todos" class="table table-striped">
+
+{% for trabajadora in datos[3] %}
+<tr>
+  <td>{{ trabajadora.id }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<table id="asignados" class="table table-striped">
+{% for trabajadora in datos[4] %}
+
+<tr>
+  <td>{{ trabajadora.id }}</td>
+</tr>
+
+{% endfor %}
+</table>
+
 {% endblock %}
