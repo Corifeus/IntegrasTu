@@ -1,0 +1,19 @@
+{% extends 'EmpleadasBundle:Default:index.html.twig' %}
+{% block title %}PIG{% endblock %}
+
+
+
+{% block body %}
+<table class="table table-striped">
+
+  {% for servicios in datos[1] %}
+
+  <tr>
+    <td>{{servicios.Fecha}}</td>
+    <td>{{servicios.Direccion}}</td>
+    <td>{{servicios.Tipo}}</td>
+  </tr>
+
+  {% endfor %}
+</table>
+{% endblock %}

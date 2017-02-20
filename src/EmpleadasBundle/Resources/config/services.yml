@@ -1,0 +1,4 @@
+services:
+#    empleadas.example:
+#        class: EmpleadasBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

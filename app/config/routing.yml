@@ -1,3 +1,7 @@
+empleadas:
+    resource: "@EmpleadasBundle/Resources/config/routing.yml"
+    prefix:   /user/
+
 PIG:
     resource: "@PIGBundle/Resources/config/routing.yml"
     prefix:   /
