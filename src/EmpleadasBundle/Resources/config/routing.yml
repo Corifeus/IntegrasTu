@@ -1,3 +1,7 @@
+trabajadoras_homepage:
+    path:     /
+    defaults: { _controller: EmpleadasBundle:Default:index }
+
 empleadas_homepage:
     path:     /user
     defaults: { _controller: EmpleadasBundle:Default:index }
@@ -13,3 +17,6 @@ empleadas_horario:
 empleadas_login:
     path:     /user/login
     defaults: { _controller: EmpleadasBundle:Default:login}
+
+logout:
+    path:     /user/logout

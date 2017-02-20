@@ -50,7 +50,7 @@ class TrabajadoraController extends Controller
 
       $em = $this->getDoctrine()->getManager();
       $connection = $em->getConnection();
-      $statement = $connection->prepare("select s.Fecha
+      $statement = $connection->prepare("select *
       from trabajadora t,servicio s,serviciosdeunatrabajadora ser
       where t.id=ser.trabajadora_id and s.id=ser.servicio_id and t.id=" . $id . ";");
       $statement->bindValue('id', 123);

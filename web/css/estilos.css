@@ -176,7 +176,7 @@ button:focus{
 
 #help{
   display:none;
-  position: absolute;
+  position: fixed;
   background-color:#6aa84f;
   width:100%;
   color: #f7f7f7;
@@ -198,7 +198,7 @@ button:focus{
 }
 
 button#mostrar{
-  position: absolute;
+  position: fixed;
   bottom: 45px;
   right: 20px;
   color:#6aa84f;

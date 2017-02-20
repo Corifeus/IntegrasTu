@@ -163,7 +163,7 @@ class ServicioController extends Controller
       $statement->bindValue('id', 123);
       $statement->execute();
 
-      return $this->redirect('/servicios/show/' . $servicio . '');
+      return $this->redirect('/admin/servicios/show/' . $servicio . '');
     }
 
     public function nuevoServicioAction(Request $request)
@@ -185,22 +185,22 @@ class ServicioController extends Controller
               switch($tipo){
                 case "Limpieza":
                   $id = $servicio->getId();
-                  return $this->redirect('/servicios/newLimpieza/'.$id);
+                  return $this->redirect('/admin/servicios/newLimpieza/'.$id);
                 break;
 
                 case "Catering":
                   $id = $servicio->getId();
-                  return $this->redirect('/servicios/newCatering/'.$id);
+                  return $this->redirect('/admin/servicios/newCatering/'.$id);
                   break;
 
                 case "Mantenimiento":
                 $id = $servicio->getId();
-                return $this->redirect('/servicios/newMantenimiento/'.$id);
+                return $this->redirect('/admin/servicios/newMantenimiento/'.$id);
                   break;
 
                 case "Otro":
                 $id = $servicio->getId();
-                return $this->redirect('/servicios/newOtro/'.$id);
+                return $this->redirect('/admin/servicios/newOtro/'.$id);
                   break;
 
                 default:

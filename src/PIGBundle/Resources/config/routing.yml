@@ -103,6 +103,9 @@ admin_homepage:
     path:     /
     defaults: { _controller: PIGBundle:Default:index }
 
-login:
+admin_login:
     path:     /login
     defaults: { _controller: PIGBundle:User:login}
+
+logout:
+    path:     /logout

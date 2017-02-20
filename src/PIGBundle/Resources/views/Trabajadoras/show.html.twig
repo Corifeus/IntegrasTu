@@ -3,10 +3,10 @@
 {% block menubar %}
 
   {% for trabajadora in datos[2] %}
-        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
+        <li><a href="/admin/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
 
         {% endfor %}
-        <a href="/trabajadoras/new"><button class="btn btn-default">Insertar Empleada</button></a>
+        <a href="/admin/trabajadoras/new"><button class="btn btn-default">Insertar Empleada</button></a>
 {% endblock %}
 
 {% block body %}
@@ -70,29 +70,29 @@
     <td>{{ datos[0].estado }}</td>
   </tr>
 </table>
-<a href="/trabajadoras/delete/{{datos[0].id}}"><button class="borrar">Eliminar Empleada</button></a>
+<a href="/admin/trabajadoras/delete/{{datos[0].id}}"><button class="borrar">Eliminar Empleada</button></a>
 </div>
 
 <div id="extra" class="col-lg-4">
 
 
-<div class="panel panel-default">
-<div class="panel-heading">
-  Horarios
-</div>
-<table class="table table-striped">
-  {% set counter = 1 %}
-  {% for horas in datos[1] %}
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    Servicios asignados
+  </div>
+      <table class="table table-striped">
+        {% for horas in datos[1] %}
 
-  <tr>
-    <td>Horario {{counter}}</td>
-    <td>{{horas.Fecha}}</td>
-    {% set counter = counter + 1 %}
-  </tr>
+        <tr>
+          <td>{{horas.Tipo}}</td>
+          <td>{{horas.Direccion}}</td>
+          <td>{{horas.Fecha|date("d/m/y  g:i a") }}</td>
 
-  {% endfor %}
-</table>
-</div>
+        </tr>
+
+        {% endfor %}
+      </table>
+  </div>
 </div>
 
 {% endblock %}
