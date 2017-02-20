@@ -1,13 +1,4 @@
-{% extends '::base.html.twig' %}
-{% block title %}PIG{% endblock %}
-
-{% block menubar %}
-    {% for cliente in clientes %}
-
-        <li>{{ cliente.nombre }}</li>
-
-    {% endfor %}
-{% endblock %}
+{% extends 'PIGBundle:Clientes:index.html.twig' %}
 
 {% block body %}
 <table>

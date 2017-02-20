@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TrabajadoraType extends AbstractType
 {
@@ -34,7 +35,14 @@ class TrabajadoraType extends AbstractType
               'years' => range(1900,2100)
             ))
             ->add('telefono',IntegerType::class)
-            ->add('estado',TextType::class)
+            ->add('estado',ChoiceType::class, array(
+                'choices'  => array(
+                    'Disponible' => 'Disponible',
+                    'No disponible' => 'No disponible',
+                    'Baja por enfermedad' => 'Baja por enfermedad',
+                    'Baja definitiva' => 'Baja definitiva',
+                    'Jubilada' => 'Jubilada',
+                ), ))
             ->add('Salvar',SubmitType::class)
             ->add('Borrar',ResetType::class)
         ;
