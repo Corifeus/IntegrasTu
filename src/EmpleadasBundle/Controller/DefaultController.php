@@ -7,6 +7,8 @@ use PIGBundle\Entity\Trabajadora;
 use PIGBundle\Entity\User;
 use PIGBundle\Form\TrabajadoraType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class DefaultController extends Controller
 {

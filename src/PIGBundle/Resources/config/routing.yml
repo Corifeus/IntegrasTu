@@ -1,6 +1,6 @@
 pig_homepage:
     path:     /
-    defaults: { _controller: EmpleadasBundle:Default:index }
+    defaults: { _controller: PIGBundle:Default:index }
 
 clientes_index:
     path:     /clientes
@@ -49,7 +49,6 @@ trabajadoras_horario:
 trabajadoras_exito:
     path:     /trabajadoras/msgExito
     defaults: { _controller: PIGBundle:Trabajadora:msgExito }
-
 
 Servicios_index:
     path:     /servicios
@@ -106,6 +105,3 @@ admin_homepage:
 admin_login:
     path:     /login
     defaults: { _controller: PIGBundle:User:login}
-
-logout:
-    path:     /logout

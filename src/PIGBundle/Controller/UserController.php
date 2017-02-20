@@ -8,6 +8,7 @@ use PIGBundle\Entity\User;
 use PIGBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class UserController extends Controller
 {
@@ -43,7 +44,7 @@ class UserController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('pig_homepage');
         }
 
         return $this->render(

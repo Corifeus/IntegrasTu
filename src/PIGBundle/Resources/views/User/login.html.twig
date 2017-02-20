@@ -14,7 +14,7 @@
                     <a class="navbar-brand" href="/">IntegrasTu</a>
 
                 </div>
-               
+
 {% endblock %}
 {% block menubar %}
 {% endblock %}
@@ -24,7 +24,7 @@
 {% endif %}
 
 <div class="loginRegister" style="max-width: 650px;">
-<form action="{{ path('login') }}" method="post">
+<form action="{{ path('admin_login') }}" method="post">
     <label for="username">Usuario o email:</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}" />
 

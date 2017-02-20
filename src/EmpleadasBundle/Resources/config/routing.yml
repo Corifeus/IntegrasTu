@@ -1,6 +1,6 @@
 trabajadoras_homepage:
     path:     /
-    defaults: { _controller: EmpleadasBundle:Default:index }
+    defaults: { _controller: EmpleadasBundle:Default:login }
 
 empleadas_homepage:
     path:     /user
@@ -19,4 +19,4 @@ empleadas_login:
     defaults: { _controller: EmpleadasBundle:Default:login}
 
 logout:
-    path:     /user/logout
+    path:     /logout
