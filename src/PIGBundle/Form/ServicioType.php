@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -26,7 +27,7 @@ class ServicioType extends AbstractType
         ->add('telefonoContacto' ,TextType::class)
         ->add('direccion' ,TextType::class)
         ->add('fecha' ,DateTimeType::class)
-        ->add('observaciones' ,TextType::class)
+        ->add('observaciones' ,TextareaType::class)
         ->add('estado' ,TextType::class)
         ->add('tipo', ChoiceType::class, array(
                 'choices'  => array(

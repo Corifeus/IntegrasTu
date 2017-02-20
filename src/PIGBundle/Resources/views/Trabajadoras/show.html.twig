@@ -1,16 +1,18 @@
-{% extends '::base.html.twig' %}
-{% block title %}PIG{% endblock %}
+{% extends 'PIGBundle:Trabajadoras:index.html.twig' %}
 
 {% block menubar %}
 
   {% for trabajadora in datos[2] %}
-        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }}</a></li>
+        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
 
         {% endfor %}
+        <a href="/trabajadoras/new"><button class="btn btn-default">Insertar Empleada</button></a>
 {% endblock %}
 
-
 {% block body %}
+
+<div id="datos" class="col-lg-8">
+
 <table class="table table-striped">
 
   <tr>
@@ -68,7 +70,16 @@
     <td>{{ datos[0].estado }}</td>
   </tr>
 </table>
+<a href="/trabajadoras/delete/{{datos[0].id}}"><button class="borrar">Eliminar Empleada</button></a>
+</div>
 
+<div id="extra" class="col-lg-4">
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+  Horarios
+</div>
 <table class="table table-striped">
   {% set counter = 1 %}
   {% for horas in datos[1] %}
@@ -81,5 +92,7 @@
 
   {% endfor %}
 </table>
+</div>
+</div>
 
 {% endblock %}

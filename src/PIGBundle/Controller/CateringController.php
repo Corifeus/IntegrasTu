@@ -39,7 +39,7 @@ class CateringController extends Controller
 
           $em->persist($catering);
           $em->flush();
-      		return $this->render('PIGBundle:Default:index.html.twig');
+      		return $this->redirectToRoute('Servicios_index');
     	}
 
     	return $this->render('PIGBundle:Caterings:nuevoCaterings.html.twig',array("formCaterings"=>$form->createView() ));

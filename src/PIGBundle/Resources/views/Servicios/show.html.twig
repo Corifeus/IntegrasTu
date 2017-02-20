@@ -1,5 +1,4 @@
 {% extends '::base.html.twig' %}
-{% block title %}PIG{% endblock %}
 
 {% block menubar %}
     {% for servicio in datos[0] %}
@@ -15,135 +14,247 @@
 {% endblock %}
 
 {% block body %}
+<div id="datos" class="col-lg-8">
 <table class="table table-striped">
 
   {% for servicio in datos[0] %}
-  {% if servicio.id == id %}
+      {% if servicio.id == id %}
 
-  <tr>
-      <td>Persona de contacto</td>
-      <td>{{ servicio.personaContacto }}</td>
-  </tr>
+          <tr>
+              <td>Persona de contacto</td>
+              <td>{{ servicio.personaContacto }}</td>
+          </tr>
 
-  <tr>
-    <td>Telefono de Contacto</td>
-    <td>{{ servicio.telefonoContacto }}</td>
-  </tr>
+          <tr>
+            <td>Telefono de Contacto</td>
+            <td>{{ servicio.telefonoContacto }}</td>
+          </tr>
 
-  <tr>
-    <td>Fecha de Registro</td>
-    <td>{{ servicio.fecha|date("d/m/y  g:i a") }}</td>
-  </tr>
+          <tr>
+            <td>Fecha de Registro</td>
+            <td>{{ servicio.fecha|date("d/m/y  g:i a") }}</td>
+          </tr>
 
-  <tr>
-    <td>Observaciones</td>
-    <td>{{ servicio.observaciones }}</td>
-  </tr>
+          <tr>
+            <td>Observaciones</td>
+            <td>{{ servicio.observaciones }}</td>
+          </tr>
 
-  <tr>
-    <td>Estado del Servicio</td>
-    <td>{{ servicio.estado }}</td>
-  </tr>
+          <tr>
+            <td>Estado del Servicio</td>
+            <td>{{ servicio.estado }}</td>
+          </tr>
 
-  <tr>
-    <td>Direccion del Servicio</td>
-    <td>{{ servicio.direccion }}</td>
-  </tr>
+          <tr>
+            <td>Direccion del Servicio</td>
+            <td>{{ servicio.direccion }}</td>
+          </tr>
+        </table>
+        <a href="/servicios/delete/{{servicio.id}}"><button class="borrar">Eliminar Servicio</button></a>
+        </div>
 
-  <tr>
-    <td>Tipo de Servicio</td>
-    <td>{{ servicio.tipo }}</td>
-  </tr>
-  {% endif %}
+        <div id="extra" class="col-lg-4">
+
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            Especificaciones
+          </div>
+          <table class="table table-striped">
+            <tr>
+              <td>Tipo de Servicio</td>
+              <td>{{ servicio.tipo }}</td>
+            </tr>
+
+          </table>
+      {% endif %}
+  {% endfor %}
+
+
+<table class="table table-striped">
+
+  {% for tipo in datos[1] %}
+      {% if tipo.idServicio == id %}
+
+
+          {% if datos[2] == "Limpieza" %}
+              <tr>
+                <td>Productos</td>
+                <td>{{ tipo.productos }}</td>
+              </tr>
+
+              <tr>
+                <td>Especificaciones</td>
+                <td>{{ tipo.especificaciones }}</td>
+              </tr>
+          {% endif %}
+
+          {% if datos[2] == "Catering" %}
+              <tr>
+                <td>Hora de llegada</td>
+                <td>{{ tipo.horaLlegada }}</td>
+              </tr>
+
+              <tr>
+                <td>Hora de inicio</td>
+                <td>{{ tipo.horaInicio }}</td>
+              </tr>
+
+              <tr>
+                <td>Hora de finalización</td>
+                <td>{{ tipo.horaFin }}</td>
+              </tr>
+
+              <tr>
+                <td>Tipo</td>
+                <td>{{ tipo.tipo }}</td>
+              </tr>
+
+              <tr>
+                <td>NºComensales</td>
+                <td>{{ tipo.noComensales }}</td>
+              </tr>
+
+              <tr>
+                <td>Observaciones de los comensales</td>
+                <td>{{ tipo.observComensales }}</td>
+              </tr>
+
+              <tr>
+                <td>Observaciones del menú</td>
+                <td>{{ tipo.observMenu }}</td>
+              </tr>
+
+              <tr>
+                <td>Especificaciones</td>
+                <td>{{ tipo.especificaciones }}</td>
+              </tr>
+            {% endif %}
+
+
+            {% if datos[2] == "Mantenimiento" %}
+
+              <tr>
+                <td>Material</td>
+                <td>{{ tipo.material }}</td>
+              </tr>
+
+              <tr>
+                <td>Especificaciones</td>
+                <td>{{ tipo.especificaciones }}</td>
+              </tr>
+
+            {% endif %}
+
+            {% if datos[2] == "Otro" %}
+
+              <tr>
+                <td>Especificaciones</td>
+                <td>{{ tipo.especificaciones }}</td>
+              </tr>
+            {% endif %}
+
+      {% endif %}
+  {% endfor %}
+</table>
+
+<table class="table table-striped">
+
+  {% for trabajadora in datos[3] %}
+
+      <tr>
+        <td>Nombre y apellidos</td>
+        <td>{{ trabajadora.Nombre }} {{ trabajadora.Apellidos }}</td>
+      </tr>
   {% endfor %}
 </table>
 
 <table class="table table-striped">
 
   {% for tipo in datos[1] %}
-  {% if tipo.idServicio == id %}
+      {% if tipo.idServicio == id %}
 
 
-  {% if datos[2] == "Limpieza" %}
-      <tr>
-        <td>Productos</td>
-        <td>{{ tipo.productos }}</td>
-      </tr>
+        {% if datos[2] == "Limpieza" %}
+            <tr>
+              <td>Productos</td>
+              <td>{{ tipo.productos }}</td>
+            </tr>
 
-      <tr>
-        <td>Especificaciones</td>
-        <td>{{ tipo.especificaciones }}</td>
-      </tr>
-  {% endif %}
+            <tr>
+              <td>Especificaciones</td>
+              <td>{{ tipo.especificaciones }}</td>
+            </tr>
+        {% endif %}
 
-  {% if datos[2] == "Catering" %}
-      <tr>
-        <td>Hora de llegada</td>
-        <td>{{ tipo.horaLlegada }}</td>
-      </tr>
+        {% if datos[2] == "Catering" %}
+            <tr>
+              <td>Hora de llegada</td>
+              <td>{{ tipo.horaLlegada }}</td>
+            </tr>
 
-      <tr>
-        <td>Hora de inicio</td>
-        <td>{{ tipo.horaInicio }}</td>
-      </tr>
+            <tr>
+              <td>Hora de inicio</td>
+              <td>{{ tipo.horaInicio }}</td>
+            </tr>
 
-      <tr>
-        <td>Hora de finalización</td>
-        <td>{{ tipo.horaFin }}</td>
-      </tr>
+            <tr>
+              <td>Hora de finalización</td>
+              <td>{{ tipo.horaFin }}</td>
+            </tr>
 
-      <tr>
-        <td>Tipo</td>
-        <td>{{ tipo.tipo }}</td>
-      </tr>
+            <tr>
+              <td>Tipo</td>
+              <td>{{ tipo.tipo }}</td>
+            </tr>
 
-      <tr>
-        <td>NºComensales</td>
-        <td>{{ tipo.noComensales }}</td>
-      </tr>
+            <tr>
+              <td>NºComensales</td>
+              <td>{{ tipo.noComensales }}</td>
+            </tr>
 
-      <tr>
-        <td>Observaciones de los comensales</td>
-        <td>{{ tipo.observComensales }}</td>
-      </tr>
+            <tr>
+              <td>Observaciones de los comensales</td>
+              <td>{{ tipo.observComensales }}</td>
+            </tr>
 
-      <tr>
-        <td>Observaciones del menú</td>
-        <td>{{ tipo.observMenu }}</td>
-      </tr>
+            <tr>
+              <td>Observaciones del menú</td>
+              <td>{{ tipo.observMenu }}</td>
+            </tr>
 
-      <tr>
-        <td>Especificaciones</td>
-        <td>{{ tipo.especificaciones }}</td>
-      </tr>
-    {% endif %}
+            <tr>
+              <td>Especificaciones</td>
+              <td>{{ tipo.especificaciones }}</td>
+            </tr>
+          {% endif %}
 
 
-    {% if datos[2] == "Mantenimiento" %}
+          {% if datos[2] == "Mantenimiento" %}
 
-      <tr>
-        <td>Material</td>
-        <td>{{ tipo.material }}</td>
-      </tr>
+            <tr>
+              <td>Material</td>
+              <td>{{ tipo.material }}</td>
+            </tr>
 
-      <tr>
-        <td>Especificaciones</td>
-        <td>{{ tipo.especificaciones }}</td>
-      </tr>
+            <tr>
+              <td>Especificaciones</td>
+              <td>{{ tipo.especificaciones }}</td>
+            </tr>
 
-    {% endif %}
+          {% endif %}
 
-    {% if datos[2] == "Otro" %}
+          {% if datos[2] == "Otro" %}
 
-      <tr>
-        <td>Especificaciones</td>
-        <td>{{ tipo.especificaciones }}</td>
-      </tr>
-    {% endif %}
-
-  {% endif %}
+            <tr>
+              <td>Especificaciones</td>
+              <td>{{ tipo.especificaciones }}</td>
+            </tr>
+          {% endif %}
+      {% endif %}
   {% endfor %}
 </table>
+</div>
+</div>
 
 <table class="table table-striped">
 

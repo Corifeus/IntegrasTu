@@ -41,14 +41,11 @@ class OtroController extends Controller
 
           $em->persist($otro);
           $em->flush();
-      		return $this->render('PIGBundle:Default:index.html.twig');
+      		return $this->redirectToRoute('Servicios_index');
     	}
-
 
     	return $this->render('PIGBundle:Otros:nuevoOtros.html.twig',array("formOtros"=>$form->createView() ));
     }
-
-
 
     public function msgExitoAction()
     {

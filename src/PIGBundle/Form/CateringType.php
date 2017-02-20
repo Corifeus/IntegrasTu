@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -29,9 +30,9 @@ class CateringType extends AbstractType
         ->add('horaFin',TextType::class)
         ->add('tipo' ,TextType::class)
         ->add('noComensales' ,IntegerType::class)
-        ->add('observComensales' ,TextType::class)
-        ->add('observMenu' ,TextType::class)
-        ->add('especificaciones' ,TextType::class)
+        ->add('observComensales' ,TextareaType::class)
+        ->add('observMenu' ,TextareaType::class)
+        ->add('especificaciones' ,TextareaType::class)
         ->add('Salvar',SubmitType::class)
         ->add('Borrar',ResetType::class)          ;
     }

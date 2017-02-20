@@ -197,6 +197,7 @@ class ServicioController extends Controller
                 case "Otro":
                 $id = $servicio->getId();
                 return $this->redirect('/servicios/newOtro/'.$id);
+
                   break;
 
                 default:
