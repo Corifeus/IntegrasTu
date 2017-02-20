@@ -131,8 +131,33 @@ class ServicioController extends Controller
       $statement->execute();
       $trabajadoras = $statement->fetchAll();
 
-        $datos=array($menu,$especificaciones,$tipo,$trabajadoras);
-        return $this->render('PIGBundle:Servicios:show.html.twig',array("datos"=>$datos, 'id'=>$id));
+
+      //Id para comprobación
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("select id
+      from trabajadora;");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+      $trabajadorasTodas = $statement->fetchAll();
+
+      //Id de las asignadas
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("select ser.trabajadora_id
+      from serviciosdeunatrabajadora ser
+      where ser.servicio_id=" . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+      $asignadas = $statement->fetchAll();
+
+
+      //Todos los datos de las trabajadoras por si no encuentra resultados
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Servicio');
+      $trabajadorasDatos = $repository->findAll();
+
+      $datos=array($menu,$especificaciones,$tipo,$trabajadoras);
+      return $this->render('PIGBundle:Servicios:show.html.twig',array("datos"=>$datos, 'id'=>$id));
     }
 
 
