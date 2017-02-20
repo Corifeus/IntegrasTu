@@ -131,11 +131,40 @@ class ServicioController extends Controller
       $statement->execute();
       $trabajadoras = $statement->fetchAll();
 
-        $datos=array($menu,$especificaciones,$tipo,$trabajadoras);
-        return $this->render('PIGBundle:Servicios:show.html.twig',array("datos"=>$datos, 'id'=>$id));
+
+      //Id para comprobación
+      $repository= $this->getDoctrine()->getRepository('PIGBundle:Trabajadora');
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("select *
+      from trabajadora;");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+      $datosTrabajadoras = $statement->fetchAll();
+
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("select ser.trabajadora_id as 'id' from serviciosdeunatrabajadora ser where ser.servicio_id="
+       . $id . ";");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+      $asignadas = $statement->fetchAll();
+
+
+      $datos=array($menu,$especificaciones,$tipo,$datosTrabajadoras,$asignadas);
+      return $this->render('PIGBundle:Servicios:show.html.twig',array("datos"=>$datos, 'id'=>$id));
     }
 
 
+    public function asignarAction($trabajadora,$servicio)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $connection = $em->getConnection();
+      $statement = $connection->prepare("INSERT INTO serviciosdeunatrabajadora (trabajadora_id,servicio_id) VALUES (" . $trabajadora . "," . $servicio . ")");
+      $statement->bindValue('id', 123);
+      $statement->execute();
+
+      return $this->redirect('/servicios/show/' . $servicio . '');
+    }
 
     public function nuevoServicioAction(Request $request)
     {
@@ -172,7 +201,6 @@ class ServicioController extends Controller
                 case "Otro":
                 $id = $servicio->getId();
                 return $this->redirect('/servicios/newOtro/'.$id);
-
                   break;
 
                 default:

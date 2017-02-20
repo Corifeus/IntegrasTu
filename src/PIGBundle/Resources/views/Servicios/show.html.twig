@@ -159,17 +159,6 @@
 
 <table class="table table-striped">
 
-  {% for trabajadora in datos[3] %}
-
-      <tr>
-        <td>Nombre y apellidos</td>
-        <td>{{ trabajadora.Nombre }} {{ trabajadora.Apellidos }}</td>
-      </tr>
-  {% endfor %}
-</table>
-
-<table class="table table-striped">
-
   {% for tipo in datos[1] %}
       {% if tipo.idServicio == id %}
 
@@ -256,16 +245,30 @@
 </div>
 </div>
 
-<table class="table table-striped">
 
-  {% for trabajadora in datos[3] %}
+<table id="todos" class="table table-striped">
 
-  <tr>
-    <td>Nombre y apellidos</td>
-    <td>{{ trabajadora.Nombre }} {{ trabajadora.Apellidos }}</td>
-  </tr>
+<h3>Posibles trabajadoras</h3>
+{% for trabajadora in datos[3] %}
+<tr>
+  <td><span>{{ trabajadora.id }}</span> <a href="/servicios/asignar/{{trabajadora.id}}/{{id}}">Asignar a {{trabajadora.Nombre}} {{trabajadora.Apellidos}}</a></td>
+</tr>
 
-  {% endfor %}
+{% endfor %}
+
+</table>
+
+<table id="asignados" class="table table-striped">
+<h3>Trabajadoras asignadas</h3>
+{% for trabajadora in datos[3] %}
+{% for empleada in datos[4] %}
+{% if trabajadora.id == empleada.id %}
+<tr>
+  <td><span>{{ trabajadora.id }}</span> {{trabajadora.Nombre}} {{trabajadora.Apellidos}}</td>
+</tr>
+{% endif %}
+{% endfor %}
+{% endfor %}
 </table>
 
 {% endblock %}
