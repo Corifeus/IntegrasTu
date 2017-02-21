@@ -9,3 +9,9 @@ PIG:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+logout_user:
+    path: /user/logout
+
+logout_admin:
+    path: /admin/logout
