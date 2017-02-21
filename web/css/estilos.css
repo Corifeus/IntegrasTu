@@ -251,3 +251,11 @@ button.borrar:hover{
   background-color: rgb(210, 41, 2);
   color: #f7f7f7;
 }
+
+table#todos tbody tr td a:hover{
+  color: rgb(210, 41, 2);
+}
+
+table#todos tbody tr td span, table#asignados tbody tr td span{
+visibility: hidden;
+}

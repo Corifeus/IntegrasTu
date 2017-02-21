@@ -28,8 +28,8 @@ security:
                 check_path: /user/login
                 default_target_path: /user
             logout:
-                path:   /logout
-                target: /
+                path:   /user/logout
+                target: /user
 
         admin:
             pattern: ^/admin
@@ -40,8 +40,8 @@ security:
                 check_path: /admin/login
                 default_target_path: /admin
             logout:
-                path:   /logout
-                target: /
+                path:   /admin/logout
+                target: /admin
 
         main:
             anonymous: ~
