@@ -3,11 +3,11 @@
 {% block menubar %}
     {% for trabajadora in trabajadoras %}
 
-        <li><a href="/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
+        <li><a href="/admin/trabajadoras/show/{{trabajadora.id}}">{{ trabajadora.nombre }} {{ trabajadora.apellidos }}</a></li>
 
     {% endfor %}
 
-    <a href="/trabajadoras/new"><button class="btn btn-default">Insertar Empleada</button></a>
+    <a href="/admin/trabajadoras/new"><button class="btn btn-default">Insertar Empleada</button></a>
 
 {% endblock %}
 

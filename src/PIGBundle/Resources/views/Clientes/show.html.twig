@@ -4,11 +4,11 @@
 {% block menubar %}
 
     {% for cliente in datos[0] %}
-        <li><a href="/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
+        <li><a href="/admin/clientes/show/{{cliente.id}}">{{ cliente.nombre }}</a></li>
 
     {% endfor %}
 
-      <a href="/clientes/new"><button class="btn btn-default">Insertar Cliente</button></a>
+      <a href="/admin/clientes/new"><button class="btn btn-default">Insertar Cliente</button></a>
 {% endblock %}
 
 {% block body %}
@@ -73,7 +73,7 @@
     <td>{{ cliente.razonSocial }}</td>
   </tr>
 </table>
-<a href="/clientes/delete/{{cliente.id}}"><button class="borrar">Eliminar Cliente</button></a>
+<a href="/admin/clientes/delete/{{cliente.id}}"><button class="borrar">Eliminar Cliente</button></a>
 </div>
 
 <div id="extra" class="col-lg-4">
@@ -88,9 +88,7 @@
   {% for servicio in datos[1] %}
     {% if servicio.cliente.id == id %}
 
-
-        <a href="#" class="list-group-item"> {{ servicio.fecha|date("d/m/y  g:i a") }} </a>
-
+        <a href="#" class="list-group-item"> {{ servicio.tipo }} {{ servicio.fecha|date("d/m/y  g:i a") }} </a>
 
     {% endif %}
   {% endfor %}

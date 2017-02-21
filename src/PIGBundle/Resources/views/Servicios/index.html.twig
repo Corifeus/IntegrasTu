@@ -3,12 +3,12 @@
 {% block menubar %}
     {% for servicio in servicios %}
 
-        <li><a href="/servicios/show/{{servicio.id}}"> Tipo: {{ servicio.Tipo }} Fecha: {{ servicio.Fecha.date|date("d/m/y  g:i a") }}</a></li>
+        <li><a href="/admin/servicios/show/{{servicio.id}}"> {{ servicio.Tipo }} del {{ servicio.Fecha.date|date("d/m/y  g:i a") }}</a></li>
 
     {% endfor %}
 
 
-    <a href="/servicios/new"><button class="btn btn-default">Insertar Servicio</button></a>
+    <a href="/admin/servicios/new"><button class="btn btn-default">Insertar Servicio</button></a>
 
 
 {% endblock %}
