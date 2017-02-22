@@ -259,3 +259,9 @@ table#todos tbody tr td a:hover{
 table#todos tbody tr td span, table#asignados tbody tr td span{
 visibility: hidden;
 }
+
+#wrapper #page-wrapper .loginRegister a:hover{
+
+  color: rgb(210, 41, 2);
+
+}
